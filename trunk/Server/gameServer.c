@@ -72,7 +72,7 @@ int main(int argc,char** argv)
         for(i=0;i<nfds;++i)
         {
             
-if(events[i].data.fd==listenfd)//如果新监测到一个SOCKET用户连接到了绑定的SOCKET端口，建立新的连接。
+            if(events[i].data.fd==listenfd)//如果新监测到一个SOCKET用户连接到了绑定的SOCKET端口，建立新的连接。
 
             {
                 connfd = accept(listenfd,(struct sockaddr *)&clientaddr, &clilen);
@@ -83,7 +83,7 @@ if(events[i].data.fd==listenfd)//如果新监测到一个SOCKET用户连接到�
 
                 char *str = inet_ntoa(clientaddr.sin_addr);
                 //设置用于读操作的文件描述符
-		printf("%s",str);
+                printf("%s",str);
 
                 ev.data.fd=connfd;
                 //设置用于注测的读操作事件
@@ -95,8 +95,7 @@ if(events[i].data.fd==listenfd)//如果新监测到一个SOCKET用户连接到�
 
                 epoll_ctl(epfd,EPOLL_CTL_ADD,connfd,&ev);
             }
-            else 
-if(events[i].events&EPOLLIN)//如果是已经连接的用户，并且收到数据，那么进行读入。
+            else if(events[i].events&EPOLLIN)//如果是已经连接的用户，并且收到数据，那么进行读入。
 
             {
                 if ( (sockfd = events[i].data.fd) < 0)
