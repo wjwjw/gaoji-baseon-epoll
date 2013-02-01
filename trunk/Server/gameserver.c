@@ -12,16 +12,16 @@ main(int argc, char **argv)
 	socklen_t			clilen;
 	struct sockaddr_in	cliaddr, servaddr;
 
-	listenfd = Socket(AF_INET, SOCK_STREAM, 0);
+	listenfd = socket(AF_INET, SOCK_STREAM, 0);
 
 	bzero(&servaddr, sizeof(servaddr));
 	servaddr.sin_family      = AF_INET;
 	servaddr.sin_addr.s_addr = htonl(INADDR_ANY);
 	servaddr.sin_port        = htons(SERV_PORT);
 
-	Bind(listenfd, (SA *) &servaddr, sizeof(servaddr));
+	bind(listenfd, (SA *) &servaddr, sizeof(servaddr));
 
-	Listen(listenfd, LISTENQ);
+	listen(listenfd, LISTENQ);
 
 	maxfd = listenfd;			/* initialize */
 	maxi = -1;					/* index into client[] array */
@@ -34,11 +34,11 @@ main(int argc, char **argv)
 /* include fig02 */
 	for ( ; ; ) {
 		rset = allset;		/* structure assignment */
-		nready = Select(maxfd+1, &rset, NULL, NULL, NULL);
+		nready = select(maxfd+1, &rset, NULL, NULL, NULL);
 
 		if (FD_ISSET(listenfd, &rset)) {	/* new client connection */
 			clilen = sizeof(cliaddr);
-			connfd = Accept(listenfd, (SA *) &cliaddr, &clilen);
+			connfd = accept(listenfd, (SA *) &cliaddr, &clilen);
 #ifdef	NOTDEF
 			printf("new client: %s, port %d\n",
 					Inet_ntop(AF_INET, &cliaddr.sin_addr, 4, NULL),
@@ -67,13 +67,13 @@ main(int argc, char **argv)
 			if ( (sockfd = client[i]) < 0)
 				continue;
 			if (FD_ISSET(sockfd, &rset)) {
-				if ( (n = Read(sockfd, buf, MAXLINE)) == 0) {
+				if ( (n = read(sockfd, buf, MAXLINE)) == 0) {
 						/*4connection closed by client */
-					Close(sockfd);
+					close(sockfd);
 					FD_CLR(sockfd, &allset);
 					client[i] = -1;
 				} else
-					Writen(sockfd, buf, n);
+					writen(sockfd, buf, n);
 
 				if (--nready <= 0)
 					break;				/* no more readable descriptors */
