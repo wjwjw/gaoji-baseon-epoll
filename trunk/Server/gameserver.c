@@ -1,84 +1,151 @@
-/* include fig01 */
-#include	"unp.h"
+#include <sys/socket.h>
+#include <sys/epoll.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <stdio.h>
+#include <errno.h>
+#include <string.h>
 
-int
-main(int argc, char **argv)
+#define MAXLINE 1024
+#define OPEN_MAX 100
+#define LISTENQ 20
+#define SERV_PORT 5000
+#define INFTIM 1000
+
+void setnonblocking(int sock)
 {
-	int					i, maxi, maxfd, listenfd, connfd, sockfd;
-	int					nready, client[FD_SETSIZE];
-	ssize_t				n;
-	fd_set				rset, allset;
-	char				buf[MAXLINE];
-	socklen_t			clilen;
-	struct sockaddr_in	cliaddr, servaddr;
-
-	listenfd = socket(AF_INET, SOCK_STREAM, 0);
-
-	bzero(&servaddr, sizeof(servaddr));
-	servaddr.sin_family      = AF_INET;
-	servaddr.sin_addr.s_addr = htonl(INADDR_ANY);
-	servaddr.sin_port        = htons(SERV_PORT);
-
-	bind(listenfd, (SA *) &servaddr, sizeof(servaddr));
-
-	listen(listenfd, LISTENQ);
-
-	maxfd = listenfd;			/* initialize */
-	maxi = -1;					/* index into client[] array */
-	for (i = 0; i < FD_SETSIZE; i++)
-		client[i] = -1;			/* -1 indicates available entry */
-	FD_ZERO(&allset);
-	FD_SET(listenfd, &allset);
-/* end fig01 */
-
-/* include fig02 */
-	for ( ; ; ) {
-		rset = allset;		/* structure assignment */
-		nready = select(maxfd+1, &rset, NULL, NULL, NULL);
-
-		if (FD_ISSET(listenfd, &rset)) {	/* new client connection */
-			clilen = sizeof(cliaddr);
-			connfd = accept(listenfd, (SA *) &cliaddr, &clilen);
-#ifdef	NOTDEF
-			printf("new client: %s, port %d\n",
-					Inet_ntop(AF_INET, &cliaddr.sin_addr, 4, NULL),
-					ntohs(cliaddr.sin_port));
-#endif
-
-			for (i = 0; i < FD_SETSIZE; i++)
-				if (client[i] < 0) {
-					client[i] = connfd;	/* save descriptor */
-					break;
-				}
-			if (i == FD_SETSIZE)
-				err_quit("too many clients");
-
-			FD_SET(connfd, &allset);	/* add new descriptor to set */
-			if (connfd > maxfd)
-				maxfd = connfd;			/* for select */
-			if (i > maxi)
-				maxi = i;				/* max index in client[] array */
-
-			if (--nready <= 0)
-				continue;				/* no more readable descriptors */
-		}
-
-		for (i = 0; i <= maxi; i++) {	/* check all clients for data */
-			if ( (sockfd = client[i]) < 0)
-				continue;
-			if (FD_ISSET(sockfd, &rset)) {
-				if ( (n = read(sockfd, buf, MAXLINE)) == 0) {
-						/*4connection closed by client */
-					close(sockfd);
-					FD_CLR(sockfd, &allset);
-					client[i] = -1;
-				} else
-					writen(sockfd, buf, n);
-
-				if (--nready <= 0)
-					break;				/* no more readable descriptors */
-			}
-		}
-	}
+    int opts;
+    opts=fcntl(sock,F_GETFL);
+    if(opts<0)
+    {
+        perror("fcntl(sock,GETFL)");
+    }
+    opts = opts|O_NONBLOCK;
+    if(fcntl(sock,F_SETFL,opts)<0)
+    {
+        perror("fcntl(sock,SETFL,opts)");
+    }
 }
-/* end fig02 */
+
+int main(int argc,char** argv)
+{
+    int i, maxi, listenfd, connfd, sockfd,epfd,nfds, portnumber;
+    ssize_t n = 0;
+    char line[MAXLINE];
+    socklen_t clilen;
+    portnumber = 12345;
+
+
+    //声明epoll_event结构体的变量,ev用于注册事件,数组用于回传要处理的事件
+
+    struct epoll_event ev,events[20];
+    //生成用于处理accept的epoll专用的文件描述符
+
+    epfd=epoll_create(256);
+    struct sockaddr_in clientaddr;
+    struct sockaddr_in serveraddr;
+    listenfd = socket(AF_INET, SOCK_STREAM, 0);
+    //把socket设置为非阻塞方式
+
+    //setnonblocking(listenfd);
+
+    //设置与要处理的事件相关的文件描述符
+
+    ev.data.fd=listenfd;
+    //设置要处理的事件类型
+
+    ev.events=EPOLLIN|EPOLLET;
+    //ev.events=EPOLLIN;
+
+    //注册epoll事件
+
+    epoll_ctl(epfd,EPOLL_CTL_ADD,listenfd,&ev);
+    bzero(&serveraddr, sizeof(serveraddr));
+    serveraddr.sin_family = AF_INET;
+    char *local_addr="127.0.0.1";
+    inet_aton(local_addr,&(serveraddr.sin_addr));//htons(portnumber);
+
+    serveraddr.sin_port=htons(portnumber);
+    bind(listenfd,(const struct sockaddr *)&serveraddr, sizeof(serveraddr));
+    listen(listenfd, LISTENQ);
+    maxi = 0;
+    for ( ; ; ) {
+        //等待epoll事件的发生
+
+        nfds=epoll_wait(epfd,events,20,500);
+        //处理所发生的所有事件
+
+        for(i=0;i<nfds;++i)
+        {
+            
+if(events[i].data.fd==listenfd)//如果新监测到一个SOCKET用户连接到了绑定的SOCKET端口，建立新的连接。
+
+            {
+                connfd = accept(listenfd,(struct sockaddr *)&clientaddr, &clilen);
+                if(connfd<0){
+                    perror("connfd<0");
+                }
+                //setnonblocking(connfd);
+
+                char *str = inet_ntoa(clientaddr.sin_addr);
+                //设置用于读操作的文件描述符
+		printf("%s",str);
+
+                ev.data.fd=connfd;
+                //设置用于注测的读操作事件
+
+                ev.events=EPOLLIN|EPOLLET;
+                //ev.events=EPOLLIN;
+
+                //注册ev
+
+                epoll_ctl(epfd,EPOLL_CTL_ADD,connfd,&ev);
+            }
+            else 
+if(events[i].events&EPOLLIN)//如果是已经连接的用户，并且收到数据，那么进行读入。
+
+            {
+                if ( (sockfd = events[i].data.fd) < 0)
+                    continue;
+                if ( (n = read(sockfd, line, MAXLINE)) < 0) {
+                    if (errno == ECONNRESET) {
+                        close(sockfd);
+                        events[i].data.fd = -1;
+                    } else{}
+                } else if (n == 0) {
+                    close(sockfd);
+                    events[i].data.fd = -1;
+                }
+                line[n] = '\0';
+                //设置用于写操作的文件描述符
+
+                ev.data.fd=sockfd;
+                //设置用于注测的写操作事件
+
+                ev.events=EPOLLOUT|EPOLLET;
+                //修改sockfd上要处理的事件为EPOLLOUT
+
+                //epoll_ctl(epfd,EPOLL_CTL_MOD,sockfd,&ev);
+
+            }
+            else if(events[i].events&EPOLLOUT) // 如果有数据发送
+
+            {
+                sockfd = events[i].data.fd;
+                write(sockfd, line, n);
+                //设置用于读操作的文件描述符
+
+                ev.data.fd=sockfd;
+                //设置用于注测的读操作事件
+
+                ev.events=EPOLLIN|EPOLLET;
+                //修改sockfd上要处理的事件为EPOLIN
+
+                epoll_ctl(epfd,EPOLL_CTL_MOD,sockfd,&ev);
+            }
+        }
+    }
+    return 0;
+}
