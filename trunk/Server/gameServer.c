@@ -1,6 +1,5 @@
 #include "global.h"
 
-#define MAXLINE 1024
 #define OPEN_MAX 100
 #define LISTENQ 20
 #define SERV_PORT 5000
@@ -23,7 +22,7 @@ void setnonblocking(int sock)
 
 int main(int argc,char** argv)
 {
-    int i, maxi, listenfd, connfd, sockfd,epfd,nfds, portnumber;
+    int i,listenfd, connfd, sockfd,epfd,nfds, portnumber;
     ssize_t n = 0;
     char line[MAXLINE];
     socklen_t clilen;
@@ -62,7 +61,7 @@ int main(int argc,char** argv)
     serveraddr.sin_port=htons(portnumber);
     bind(listenfd,(const struct sockaddr *)&serveraddr, sizeof(serveraddr));
     listen(listenfd, LISTENQ);
-    maxi = 0;
+//    maxi = 0;
     for ( ; ; ) {
         //等待epoll事件的发生
 
