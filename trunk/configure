@@ -271,7 +271,7 @@ PACKAGE_VERSION=
 PACKAGE_STRING=
 PACKAGE_BUGREPORT=
 
-ac_unique_file="lib/unp.h"
+ac_unique_file="lib/global.h"
 ac_subst_vars='SHELL PATH_SEPARATOR PACKAGE_NAME PACKAGE_TARNAME PACKAGE_VERSION PACKAGE_STRING PACKAGE_BUGREPORT exec_prefix prefix program_transform_name bindir sbindir libexecdir datadir sysconfdir sharedstatedir localstatedir libdir includedir oldincludedir infodir mandir build_alias host_alias target_alias DEFS ECHO_C ECHO_N ECHO_T LIBS build build_cpu build_vendor build_os host host_cpu host_vendor host_os CC CFLAGS LDFLAGS CPPFLAGS ac_ct_CC EXEEXT OBJEXT RANLIB ac_ct_RANLIB CPP EGREP LIB_OBJS LIBFREE_OBJS LIBGAI_OBJS LIBROUTE_OBJS LIBXTI_OBJS LIBS_XTI LIBUNP LIBUNPXTI LIBUNP_NAME LIBUNPXTI_NAME LIBOBJS LTLIBOBJS'
 ac_subst_files=''
 
@@ -2730,19 +2730,19 @@ _ACEOF
 fi
 
 
-#echo "$as_me:$LINENO: checking for $HOME/libunp.a" >&5
-#echo $ECHO_N "checking for $HOME/libunp.a... $ECHO_C" >&6
-#if test -f $HOME/libunp.a ; then
-#	echo "$as_me:$LINENO: result: yes" >&5
-#echo "${ECHO_T}yes" >&6
-#	LIBUNP="$HOME/libunp.a"
-#	LIBUNP_NAME=$HOME/libunp.a
-#else
-#	echo "$as_me:$LINENO: result: no" >&5
-#echo "${ECHO_T}no" >&6
-#	LIBUNP="../libunp.a"
-#	LIBUNP_NAME=../libunp.a
-#fi
+echo "$as_me:$LINENO: checking for $HOME/libglobal.a" >&5
+echo $ECHO_N "checking for $HOME/libglobal.a... $ECHO_C" >&6
+if test -f $HOME/libglobal.a ; then
+	echo "$as_me:$LINENO: result: yes" >&5
+echo "${ECHO_T}yes" >&6
+	LIBUNP="$HOME/libglobal.a"
+	LIBUNP_NAME=$HOME/libglobal.a
+else
+	echo "$as_me:$LINENO: result: no" >&5
+echo "${ECHO_T}no" >&6
+	LIBUNP="../libglobal.a"
+	LIBUNP_NAME=../libglobal.a
+fi
 
 #echo "$as_me:$LINENO: checking for $HOME/libunpxti.a" >&5
 #echo $ECHO_N "checking for $HOME/libunpxti.a... $ECHO_C" >&6
@@ -7774,113 +7774,113 @@ _ACEOF
 fi
 
 LIB_OBJS=
-LIB_OBJS="$LIB_OBJS connect_nonb.o"
-LIB_OBJS="$LIB_OBJS connect_timeo.o"
-LIB_OBJS="$LIB_OBJS daemon_inetd.o"
-LIB_OBJS="$LIB_OBJS daemon_init.o"
-LIB_OBJS="$LIB_OBJS dg_cli.o"
-LIB_OBJS="$LIB_OBJS dg_echo.o"
+#LIB_OBJS="$LIB_OBJS connect_nonb.o"
+#LIB_OBJS="$LIB_OBJS connect_timeo.o"
+#LIB_OBJS="$LIB_OBJS daemon_inetd.o"
+#LIB_OBJS="$LIB_OBJS daemon_init.o"
+#LIB_OBJS="$LIB_OBJS dg_cli.o"
+#LIB_OBJS="$LIB_OBJS dg_echo.o"
 LIB_OBJS="$LIB_OBJS error.o"
-LIB_OBJS="$LIB_OBJS get_ifi_info.o"
-LIB_OBJS="$LIB_OBJS gf_time.o"
-LIB_OBJS="$LIB_OBJS host_serv.o"
+#LIB_OBJS="$LIB_OBJS get_ifi_info.o"
+#LIB_OBJS="$LIB_OBJS gf_time.o"
+#LIB_OBJS="$LIB_OBJS host_serv.o"
 if test "$ac_cv_func_hstrerror" = no ; then
    LIBFREE_OBJS="$LIBFREE_OBJS hstrerror.o"
 fi
 if test "$ac_cv_func_if_nametoindex" = no ; then
    LIB_OBJS="$LIB_OBJS if_nametoindex.o if_indextoname.o if_nameindex.o"
 fi
-if test "$ac_cv_multicast" = yes ; then
-   LIB_OBJS="$LIB_OBJS family_to_level.o"
-   LIB_OBJS="$LIB_OBJS mcast_leave.o mcast_join.o"
-   LIB_OBJS="$LIB_OBJS mcast_get_if.o mcast_get_loop.o mcast_get_ttl.o"
-   LIB_OBJS="$LIB_OBJS mcast_set_if.o mcast_set_loop.o mcast_set_ttl.o"
-fi
-LIB_OBJS="$LIB_OBJS my_addrs.o"
-if test "$ac_cv_func_pselect" = no ; then
-   LIB_OBJS="$LIB_OBJS pselect.o"
-fi
-LIB_OBJS="$LIB_OBJS read_fd.o"
-LIB_OBJS="$LIB_OBJS readline.o"
+#if test "$ac_cv_multicast" = yes ; then
+#   LIB_OBJS="$LIB_OBJS family_to_level.o"
+#   LIB_OBJS="$LIB_OBJS mcast_leave.o mcast_join.o"
+#   LIB_OBJS="$LIB_OBJS mcast_get_if.o mcast_get_loop.o mcast_get_ttl.o"
+#   LIB_OBJS="$LIB_OBJS mcast_set_if.o mcast_set_loop.o mcast_set_ttl.o"
+#fi
+#LIB_OBJS="$LIB_OBJS my_addrs.o"
+#if test "$ac_cv_func_pselect" = no ; then
+#   LIB_OBJS="$LIB_OBJS pselect.o"
+#fi
+#LIB_OBJS="$LIB_OBJS read_fd.o"
+#LIB_OBJS="$LIB_OBJS readline.o"
 LIB_OBJS="$LIB_OBJS readn.o"
-LIB_OBJS="$LIB_OBJS readable_timeo.o"
-LIB_OBJS="$LIB_OBJS rtt.o"
-LIB_OBJS="$LIB_OBJS signal.o"
-LIB_OBJS="$LIB_OBJS signal_intr.o"
-if test "$ac_cv_func_snprintf" = no ; then
-   LIB_OBJS="$LIB_OBJS snprintf.o"
-fi
-if test "$ac_cv_func_sockatmark" = no ; then
-   LIB_OBJS="$LIB_OBJS sockatmark.o"
-fi
-LIB_OBJS="$LIB_OBJS sock_bind_wild.o"
-LIB_OBJS="$LIB_OBJS sock_cmp_addr.o"
-LIB_OBJS="$LIB_OBJS sock_cmp_port.o"
-LIB_OBJS="$LIB_OBJS sock_ntop.o"
-LIB_OBJS="$LIB_OBJS sock_ntop_host.o"
-LIB_OBJS="$LIB_OBJS sock_get_port.o"
-LIB_OBJS="$LIB_OBJS sock_set_addr.o"
-LIB_OBJS="$LIB_OBJS sock_set_port.o"
-LIB_OBJS="$LIB_OBJS sock_set_wild.o"
-LIB_OBJS="$LIB_OBJS sockfd_to_family.o"
-LIB_OBJS="$LIB_OBJS str_cli.o"
-LIB_OBJS="$LIB_OBJS str_echo.o"
-LIB_OBJS="$LIB_OBJS tcp_connect.o"
-LIB_OBJS="$LIB_OBJS tcp_listen.o"
-LIB_OBJS="$LIB_OBJS tv_sub.o"
-LIB_OBJS="$LIB_OBJS udp_client.o"
-LIB_OBJS="$LIB_OBJS udp_connect.o"
-LIB_OBJS="$LIB_OBJS udp_server.o"
-LIB_OBJS="$LIB_OBJS wraplib.o"
-LIB_OBJS="$LIB_OBJS wrapsock.o"
-LIB_OBJS="$LIB_OBJS wrapstdio.o"
-if test "$ac_cv_header_pthread_h" = yes ; then
-   LIB_OBJS="$LIB_OBJS wrappthread.o"
-fi
-LIB_OBJS="$LIB_OBJS wrapunix.o"
-LIB_OBJS="$LIB_OBJS write_fd.o"
+#LIB_OBJS="$LIB_OBJS readable_timeo.o"
+#LIB_OBJS="$LIB_OBJS rtt.o"
+#LIB_OBJS="$LIB_OBJS signal.o"
+#LIB_OBJS="$LIB_OBJS signal_intr.o"
+#if test "$ac_cv_func_snprintf" = no ; then
+#   LIB_OBJS="$LIB_OBJS snprintf.o"
+#fi
+#if test "$ac_cv_func_sockatmark" = no ; then
+#   LIB_OBJS="$LIB_OBJS sockatmark.o"
+#fi
+#LIB_OBJS="$LIB_OBJS sock_bind_wild.o"
+#LIB_OBJS="$LIB_OBJS sock_cmp_addr.o"
+#LIB_OBJS="$LIB_OBJS sock_cmp_port.o"
+#LIB_OBJS="$LIB_OBJS sock_ntop.o"
+#LIB_OBJS="$LIB_OBJS sock_ntop_host.o"
+#LIB_OBJS="$LIB_OBJS sock_get_port.o"
+#LIB_OBJS="$LIB_OBJS sock_set_addr.o"
+#LIB_OBJS="$LIB_OBJS sock_set_port.o"
+#LIB_OBJS="$LIB_OBJS sock_set_wild.o"
+#LIB_OBJS="$LIB_OBJS sockfd_to_family.o"
+#LIB_OBJS="$LIB_OBJS str_cli.o"
+#LIB_OBJS="$LIB_OBJS str_echo.o"
+#LIB_OBJS="$LIB_OBJS tcp_connect.o"
+#LIB_OBJS="$LIB_OBJS tcp_listen.o"
+#LIB_OBJS="$LIB_OBJS tv_sub.o"
+#LIB_OBJS="$LIB_OBJS udp_client.o"
+#LIB_OBJS="$LIB_OBJS udp_connect.o"
+#LIB_OBJS="$LIB_OBJS udp_server.o"
+#LIB_OBJS="$LIB_OBJS wraplib.o"
+#LIB_OBJS="$LIB_OBJS wrapsock.o"
+#LIB_OBJS="$LIB_OBJS wrapstdio.o"
+#if test "$ac_cv_header_pthread_h" = yes ; then
+#   LIB_OBJS="$LIB_OBJS wrappthread.o"
+#fi
+#LIB_OBJS="$LIB_OBJS wrapunix.o"
+#LIB_OBJS="$LIB_OBJS write_fd.o"
 LIB_OBJS="$LIB_OBJS writen.o"
-LIB_OBJS="$LIB_OBJS writable_timeo.o"
+#LIB_OBJS="$LIB_OBJS writable_timeo.o"
 
-LIBFREE_OBJS=
+#LIBFREE_OBJS=
 
-LIBFREE_OBJS="$LIBFREE_OBJS in_cksum.o"
-if test "$ac_cv_func_inet_aton" = no ; then
-   LIBFREE_OBJS="$LIBFREE_OBJS inet_aton.o"
-fi
+#LIBFREE_OBJS="$LIBFREE_OBJS in_cksum.o"
+#if test "$ac_cv_func_inet_aton" = no ; then
+#   LIBFREE_OBJS="$LIBFREE_OBJS inet_aton.o"
+#fi
 
-LIBFREE_OBJS="$LIBFREE_OBJS inet_ntop.o inet_pton.o"
+#LIBFREE_OBJS="$LIBFREE_OBJS inet_ntop.o inet_pton.o"
 
-if test "$ac_cv_func_getaddrinfo" = no ; then
-LIBGAI_OBJS="getaddrinfo.o getnameinfo.o freeaddrinfo.o gai_strerror.o"
-LIBGAI_OBJS="$LIBGAI_OBJS ga_aistruct.o ga_clone.o ga_echeck.o ga_nsearch.o"
-LIBGAI_OBJS="$LIBGAI_OBJS ga_port.o ga_serv.o ga_unix.o gn_ipv46.o"
-else
-LIBGAI_OBJS=""
-fi
+#if test "$ac_cv_func_getaddrinfo" = no ; then
+#LIBGAI_OBJS="getaddrinfo.o getnameinfo.o freeaddrinfo.o gai_strerror.o"
+#LIBGAI_OBJS="$LIBGAI_OBJS ga_aistruct.o ga_clone.o ga_echeck.o ga_nsearch.o"
+#LIBGAI_OBJS="$LIBGAI_OBJS ga_port.o ga_serv.o ga_unix.o gn_ipv46.o"
+#else
+#LIBGAI_OBJS=""
+#fi
 
-LIBROUTE_OBJS="get_rtaddrs.o"
-LIBROUTE_OBJS="$LIBROUTE_OBJS if_indextoname.o if_nameindex.o if_nametoindex.o"
-LIBROUTE_OBJS="$LIBROUTE_OBJS net_rt_iflist.o net_rt_dump.o"
-LIBROUTE_OBJS="$LIBROUTE_OBJS sock_masktop.o"
+#LIBROUTE_OBJS="get_rtaddrs.o"
+#LIBROUTE_OBJS="$LIBROUTE_OBJS if_indextoname.o if_nameindex.o if_nametoindex.o"
+#LIBROUTE_OBJS="$LIBROUTE_OBJS net_rt_iflist.o net_rt_dump.o"
+#LIBROUTE_OBJS="$LIBROUTE_OBJS sock_masktop.o"
 
-LIBXTI_OBJS=
-if test "$ac_cv_header_netdir_h" = yes ; then
-   LIBXTI_OBJS="$LIBXTI_OBJS tcp_connect.o"
-   LIBXTI_OBJS="$LIBXTI_OBJS tcp_listen.o"
-   LIBXTI_OBJS="$LIBXTI_OBJS udp_server.o"
-   LIBXTI_OBJS="$LIBXTI_OBJS udp_client.o"
-fi
-LIBXTI_OBJS="$LIBXTI_OBJS wrapxti.o"
-LIBXTI_OBJS="$LIBXTI_OBJS xti_accept.o"
-LIBXTI_OBJS="$LIBXTI_OBJS xti_flags_str.o"
-LIBXTI_OBJS="$LIBXTI_OBJS xti_getopt.o"
-LIBXTI_OBJS="$LIBXTI_OBJS xti_ntop.o"
-LIBXTI_OBJS="$LIBXTI_OBJS xti_ntop_host.o"
-LIBXTI_OBJS="$LIBXTI_OBJS xti_rdwr.o"
-LIBXTI_OBJS="$LIBXTI_OBJS xti_setopt.o"
-LIBXTI_OBJS="$LIBXTI_OBJS xti_str_opts.o"
-LIBXTI_OBJS="$LIBXTI_OBJS xti_tlook_str.o"
+#LIBXTI_OBJS=
+#if test "$ac_cv_header_netdir_h" = yes ; then
+#   LIBXTI_OBJS="$LIBXTI_OBJS tcp_connect.o"
+#   LIBXTI_OBJS="$LIBXTI_OBJS tcp_listen.o"
+#   LIBXTI_OBJS="$LIBXTI_OBJS udp_server.o"
+#   LIBXTI_OBJS="$LIBXTI_OBJS udp_client.o"
+#fi
+#LIBXTI_OBJS="$LIBXTI_OBJS wrapxti.o"
+#LIBXTI_OBJS="$LIBXTI_OBJS xti_accept.o"
+#LIBXTI_OBJS="$LIBXTI_OBJS xti_flags_str.o"
+#LIBXTI_OBJS="$LIBXTI_OBJS xti_getopt.o"
+#LIBXTI_OBJS="$LIBXTI_OBJS xti_ntop.o"
+#LIBXTI_OBJS="$LIBXTI_OBJS xti_ntop_host.o"
+#LIBXTI_OBJS="$LIBXTI_OBJS xti_rdwr.o"
+#LIBXTI_OBJS="$LIBXTI_OBJS xti_setopt.o"
+#LIBXTI_OBJS="$LIBXTI_OBJS xti_str_opts.o"
+#LIBXTI_OBJS="$LIBXTI_OBJS xti_tlook_str.o"
 
 
 

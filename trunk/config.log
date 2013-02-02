@@ -123,8 +123,8 @@ configure:2307: $? = 0
 configure:2319: result: yes
 configure:2403: checking for t_open in -lnsl
 configure:2434: gcc -o conftest -g -O2 -D_REENTRANT   conftest.c -lnsl  -lpthread  >&5
-/tmp/cc2Xfv6i.o: In function `main':
-/home/www/gaoji-baseon-epoll/configure:2431: undefined reference to `t_open'
+/tmp/cc6ORzXd.o: In function `main':
+/mnt/hgfs/gaoji-baseon-epoll/configure:2431: undefined reference to `t_open'
 collect2: ld returned 1 exit status
 configure:2437: $? = 1
 configure: failed program was:
@@ -169,8 +169,8 @@ configure:2591: checking for /root/libresolv.a
 configure:2598: result: no
 configure:2601: checking for res_init in -lresolv
 configure:2632: gcc -o conftest -g -O2 -D_REENTRANT   conftest.c -lresolv  -lpthread  >&5
-/tmp/cckDHDHv.o: In function `main':
-/home/www/gaoji-baseon-epoll/configure:2629: undefined reference to `res_init'
+/tmp/cc8gTtnt.o: In function `main':
+/mnt/hgfs/gaoji-baseon-epoll/configure:2629: undefined reference to `res_init'
 collect2: ld returned 1 exit status
 configure:2635: $? = 1
 configure: failed program was:
@@ -234,10 +234,8 @@ configure: failed program was:
 |   return 0;
 | }
 configure:2721: result: no
-configure:2733: checking for /root/libunp.a
+configure:2733: checking for /root/libglobal.a
 configure:2741: result: no
-configure:2747: checking for /root/libunpxti.a
-configure:2755: result: no
 configure:2766: checking how to run the C preprocessor
 configure:2802: gcc -E  conftest.c
 configure:2808: $? = 0
@@ -1649,9 +1647,9 @@ configure:6890: $? = 0
 configure:6901: result: yes
 configure:6916: checking for kqueue
 configure:6966: gcc -o conftest -g -O2 -D_REENTRANT   conftest.c -lpthread  >&5
-/tmp/ccgrVcex.o: In function `main':
-/home/www/gaoji-baseon-epoll/configure:7019: undefined reference to `kqueue'
-/tmp/ccgrVcex.o:(.data+0x0): undefined reference to `kqueue'
+/tmp/ccWpKX4c.o: In function `main':
+/mnt/hgfs/gaoji-baseon-epoll/configure:7019: undefined reference to `kqueue'
+/tmp/ccWpKX4c.o:(.data+0x0): undefined reference to `kqueue'
 collect2: ld returned 1 exit status
 configure:6969: $? = 1
 configure: failed program was:
@@ -1762,9 +1760,9 @@ configure: failed program was:
 configure:6986: result: no
 configure:6916: checking for kevent
 configure:6966: gcc -o conftest -g -O2 -D_REENTRANT   conftest.c -lpthread  >&5
-/tmp/ccc1iWuD.o: In function `main':
-/home/www/gaoji-baseon-epoll/configure:7019: undefined reference to `kevent'
-/tmp/ccc1iWuD.o:(.data+0x0): undefined reference to `kevent'
+/tmp/ccMLXmBc.o: In function `main':
+/mnt/hgfs/gaoji-baseon-epoll/configure:7019: undefined reference to `kevent'
+/tmp/ccMLXmBc.o:(.data+0x0): undefined reference to `kevent'
 collect2: ld returned 1 exit status
 configure:6969: $? = 1
 configure: failed program was:
@@ -2111,18 +2109,18 @@ ECHO_T=''
 EGREP='grep -E'
 EXEEXT=''
 LDFLAGS=''
-LIBFREE_OBJS=' in_cksum.o inet_ntop.o inet_pton.o'
+LIBFREE_OBJS=''
 LIBGAI_OBJS=''
 LIBOBJS=''
-LIBROUTE_OBJS='get_rtaddrs.o if_indextoname.o if_nameindex.o if_nametoindex.o net_rt_iflist.o net_rt_dump.o sock_masktop.o'
+LIBROUTE_OBJS=''
 LIBS='-lpthread'
 LIBS_XTI='-lpthread'
-LIBUNP='../libunp.a'
-LIBUNPXTI='../libunpxti.a'
-LIBUNPXTI_NAME='../libunpxti.a'
-LIBUNP_NAME='../libunp.a'
-LIBXTI_OBJS=' wrapxti.o xti_accept.o xti_flags_str.o xti_getopt.o xti_ntop.o xti_ntop_host.o xti_rdwr.o xti_setopt.o xti_str_opts.o xti_tlook_str.o'
-LIB_OBJS=' connect_nonb.o connect_timeo.o daemon_inetd.o daemon_init.o dg_cli.o dg_echo.o error.o get_ifi_info.o gf_time.o host_serv.o family_to_level.o mcast_leave.o mcast_join.o mcast_get_if.o mcast_get_loop.o mcast_get_ttl.o mcast_set_if.o mcast_set_loop.o mcast_set_ttl.o my_addrs.o read_fd.o readline.o readn.o readable_timeo.o rtt.o signal.o signal_intr.o sock_bind_wild.o sock_cmp_addr.o sock_cmp_port.o sock_ntop.o sock_ntop_host.o sock_get_port.o sock_set_addr.o sock_set_port.o sock_set_wild.o sockfd_to_family.o str_cli.o str_echo.o tcp_connect.o tcp_listen.o tv_sub.o udp_client.o udp_connect.o udp_server.o wraplib.o wrapsock.o wrapstdio.o wrappthread.o wrapunix.o write_fd.o writen.o writable_timeo.o'
+LIBUNP='../libglobal.a'
+LIBUNPXTI=''
+LIBUNPXTI_NAME=''
+LIBUNP_NAME='../libglobal.a'
+LIBXTI_OBJS=''
+LIB_OBJS=' error.o readn.o writen.o'
 LTLIBOBJS=''
 OBJEXT='o'
 PACKAGE_BUGREPORT=''
