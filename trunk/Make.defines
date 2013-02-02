@@ -9,7 +9,7 @@
 # System = x86_64-unknown-linux-gnu
 
 CC = gcc
-CFLAGS = -I../Lib -g -O2 -D_REENTRANT -Wall
+CFLAGS = -I../lib -g -O2 -D_REENTRANT -Wall
 LIBS =  -lpthread
 LIBS_XTI =   -lpthread
 RANLIB = ranlib
