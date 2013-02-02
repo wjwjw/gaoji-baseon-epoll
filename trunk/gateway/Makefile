@@ -1,11 +1,11 @@
 include ../Make.defines
 
-PROGS =	gameServer
+PROGS =	server
 
 all:	${PROGS}
 
-gameServer:	gameServer.o
-		${CC} ${CFLAGS} -o $@ gameServer.o ${LIBS}
+server:	mgeeg.o global_gateway_server.o
+		${CC} ${CFLAGS} -o $@ mgeeg.o global_gateway_server.o ${LIBS}
 
 clean:
 		rm -f ${PROGS} ${CLEANFILES}

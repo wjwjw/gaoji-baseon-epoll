@@ -1,5 +1,6 @@
 #include "global.h"
-#include "server.h"
+
+void start_game_server();
 
 /*
 注释新的服务进程
@@ -15,7 +16,7 @@ main(int argc,char** argv)
     }
     //启动服务器进程
     else{
-        start_game_sever();
+	start_game_server();
     }
     return 0;
 }

@@ -123,7 +123,7 @@ configure:2307: $? = 0
 configure:2319: result: yes
 configure:2403: checking for t_open in -lnsl
 configure:2434: gcc -o conftest -g -O2 -D_REENTRANT   conftest.c -lnsl  -lpthread  >&5
-/tmp/cc6ORzXd.o: In function `main':
+/tmp/ccM22OQJ.o: In function `main':
 /mnt/hgfs/gaoji-baseon-epoll/configure:2431: undefined reference to `t_open'
 collect2: ld returned 1 exit status
 configure:2437: $? = 1
@@ -169,7 +169,7 @@ configure:2591: checking for /root/libresolv.a
 configure:2598: result: no
 configure:2601: checking for res_init in -lresolv
 configure:2632: gcc -o conftest -g -O2 -D_REENTRANT   conftest.c -lresolv  -lpthread  >&5
-/tmp/cc8gTtnt.o: In function `main':
+/tmp/ccSHT7Bf.o: In function `main':
 /mnt/hgfs/gaoji-baseon-epoll/configure:2629: undefined reference to `res_init'
 collect2: ld returned 1 exit status
 configure:2635: $? = 1
@@ -1647,9 +1647,9 @@ configure:6890: $? = 0
 configure:6901: result: yes
 configure:6916: checking for kqueue
 configure:6966: gcc -o conftest -g -O2 -D_REENTRANT   conftest.c -lpthread  >&5
-/tmp/ccWpKX4c.o: In function `main':
+/tmp/ccGXR5lo.o: In function `main':
 /mnt/hgfs/gaoji-baseon-epoll/configure:7019: undefined reference to `kqueue'
-/tmp/ccWpKX4c.o:(.data+0x0): undefined reference to `kqueue'
+/tmp/ccGXR5lo.o:(.data+0x0): undefined reference to `kqueue'
 collect2: ld returned 1 exit status
 configure:6969: $? = 1
 configure: failed program was:
@@ -1760,9 +1760,9 @@ configure: failed program was:
 configure:6986: result: no
 configure:6916: checking for kevent
 configure:6966: gcc -o conftest -g -O2 -D_REENTRANT   conftest.c -lpthread  >&5
-/tmp/ccMLXmBc.o: In function `main':
+/tmp/cc2acIQI.o: In function `main':
 /mnt/hgfs/gaoji-baseon-epoll/configure:7019: undefined reference to `kevent'
-/tmp/ccMLXmBc.o:(.data+0x0): undefined reference to `kevent'
+/tmp/cc2acIQI.o:(.data+0x0): undefined reference to `kevent'
 collect2: ld returned 1 exit status
 configure:6969: $? = 1
 configure: failed program was:

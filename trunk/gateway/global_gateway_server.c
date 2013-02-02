@@ -1,16 +1,29 @@
-#include "global.h"
+#include "server.h"
 
-struct sockaddr_in clientaddr;
+struct sockaddr_in serveraddr;
 
-sockaddr_in
+void 
+setnonblocking(int sock)
+{
+    int opts;
+    opts=fcntl(sock,F_GETFL);
+    if(opts<0){
+	   perror("fcntl(sock,GETFL)");
+    }
+   	opts = opts|O_NONBLOCK;
+    if(fcntl(sock,F_SETFL,opts)<0){
+	   perror("fcntl(sock,SETFL,opts)");
+    }
+}
+
+void
 init_game_server(){
-	struct sockaddr_in serveraddr;
 	char *local_addr = "127.0.0.1";
 	int game_port = 12345;
-    bzero(&serveraddr, sizeof(serveraddr));
-    serveraddr.sin_family = AF_INET;
-    inet_aton(local_addr,&(serveraddr.sin_addr));//htons(portnumber);
-    serveraddr.sin_port = htons(portnumber);
+	bzero(&serveraddr, sizeof(serveraddr));
+	serveraddr.sin_family = AF_INET;
+	inet_aton(local_addr,&(serveraddr.sin_addr));
+	serveraddr.sin_port = htons(game_port);
 }
 
 
@@ -18,9 +31,16 @@ void
 start_game_sever(){
 	//声明epoll_event结构体的变量,ev用于注册事件,数组用于回传要处理的事件
 	struct epoll_event ev,events[20];
+	int i;
 	int epfd,nfds;
-	int listenfd;
-	struct sockaddr_in serveraddr = init_game_server();
+	int listenfd,connfd,sockfd;
+	socklen_t clilen;
+	struct sockaddr_in serveraddr;
+	struct sockaddr_in clientaddr;
+	ssize_t n = 0;
+	char line[MAXLINE];
+
+	init_game_server();
 	epfd = epoll_create(256);
 	listenfd = socket(AF_INET, SOCK_STREAM, 0);
 	setnonblocking(listenfd);
