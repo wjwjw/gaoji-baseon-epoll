@@ -8,6 +8,7 @@
 #include <errno.h>
 #include <string.h>
 #include <stdlib.h>
+#include <syslog.h>
 
 #define MAXLINE         4096    /* max text line length */
 
