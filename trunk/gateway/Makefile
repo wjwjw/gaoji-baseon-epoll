@@ -1,10 +1,10 @@
 include ../Make.defines
 
-PROGS =	server
+PROGS =	server01
 
 all:	${PROGS}
 
-server:	mgeeg.o global_gateway_server.o
+server01:	mgeeg.o global_gateway_server.o
 		${CC} ${CFLAGS} -o $@ mgeeg.o global_gateway_server.o ${LIBS}
 
 clean:

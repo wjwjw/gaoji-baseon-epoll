@@ -78,6 +78,16 @@ err_quit(const char *fmt, ...)
 	exit(1);
 }
 
+void
+log_print(int level, const char *fmt, ...)
+{
+	va_list		ap;
+	va_start(ap, fmt);
+	err_doit(1, level, fmt, ap);
+	va_end(ap);
+	exit(1);
+}
+
 /* Print message and return to caller
  * Caller specifies "errnoflag" and "level" */
 
@@ -96,7 +106,7 @@ err_doit(int errnoflag, int level, const char *fmt, va_list ap)
 	n = strlen(buf);
 	if (errnoflag)
 		snprintf(buf + n, MAXLINE - n, ": %s", strerror(errno_save));
-	strcat(buf, "\n");
+	strcat(buf,"\n");
     
 	if (daemon_proc) {
 		syslog(level,"%s", buf);

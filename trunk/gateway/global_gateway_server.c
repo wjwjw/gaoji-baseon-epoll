@@ -1,4 +1,4 @@
-#include "server.h"
+#include "global.h"
 
 struct sockaddr_in serveraddr;
 
@@ -28,7 +28,7 @@ init_game_server(){
 
 
 void
-start_game_sever(){
+start_game_server(){
 	//声明epoll_event结构体的变量,ev用于注册事件,数组用于回传要处理的事件
 	struct epoll_event ev,events[20];
 	int i;
