@@ -9,6 +9,8 @@
 #include <string.h>
 #include <stdlib.h>
 #include <syslog.h>
+#include <time.h>
+#include <netdb.h>
 
 
 #define MAXLINE         4096    /* max text line length */
