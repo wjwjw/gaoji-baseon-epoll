@@ -114,20 +114,26 @@ configure: failed program was:
 configure:2225: checking for ranlib
 configure:2241: found /usr/bin/ranlib
 configure:2252: result: ranlib
-configure:2267: checking for pthread_create in -lpthread
-configure:2298: gcc -o conftest -g -O2   conftest.c -lpthread   >&5
-configure:2301: $? = 0
-configure:2304: test -s conftest
-configure:2307: $? = 0
-configure:2319: result: yes
-configure:2403: checking for t_open in -lnsl
-configure:2434: gcc -o conftest -g -O2 -D_REENTRANT   conftest.c -lnsl  -lpthread  >&5
-/tmp/cc6G55eo.o: In function `main':
-/mnt/hgfs/centos_share/Me/Server/configure:2431: undefined reference to `t_open'
+configure:2265: checking for event_new in -levent
+configure:2296: gcc -o conftest -g -O2   conftest.c -levent   >&5
+configure:2299: $? = 0
+configure:2302: test -s conftest
+configure:2305: $? = 0
+configure:2317: result: yes
+configure:2402: checking for pthread_create in -lpthread
+configure:2433: gcc -o conftest -g -O2 -D_REENTRANT   conftest.c -lpthread  -levent  >&5
+configure:2436: $? = 0
+configure:2439: test -s conftest
+configure:2442: $? = 0
+configure:2454: result: yes
+configure:2538: checking for t_open in -lnsl
+configure:2569: gcc -o conftest -g -O2 -D_REENTRANT -D_REENTRANT   conftest.c -lnsl  -lpthread -levent  >&5
+/tmp/ccsA0VL8.o: In function `main':
+/mnt/hgfs/centos_share/Me/Server/configure:2567: undefined reference to `t_open'
 collect2: ld returned 1 exit status
-configure:2437: $? = 1
+configure:2572: $? = 1
 configure: failed program was:
-| #line 2410 "configure"
+| #line 2545 "configure"
 | /* confdefs.h.  */
 | 
 | #define PACKAGE_NAME ""
@@ -136,6 +142,7 @@ configure: failed program was:
 | #define PACKAGE_STRING ""
 | #define PACKAGE_BUGREPORT ""
 | #define CPU_VENDOR_OS "i686-pc-linux-gnu"
+| #define HAVE_LIBPTHREAD 1
 | #define HAVE_LIBPTHREAD 1
 | /* end confdefs.h.  */
 | 
@@ -153,27 +160,27 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:2455: result: no
-configure:2466: checking for library containing socket
-configure:2497: gcc -o conftest -g -O2 -D_REENTRANT   conftest.c -lpthread  >&5
-configure:2500: $? = 0
-configure:2503: test -s conftest
-configure:2506: $? = 0
-configure:2565: result: none required
-configure:2573: checking for /usr/local/bind/lib/libbind.a
-configure:2580: result: no
-configure:2582: checking for /root/libbind.a
-configure:2589: result: no
-configure:2591: checking for /root/libresolv.a
-configure:2598: result: no
-configure:2601: checking for res_init in -lresolv
-configure:2632: gcc -o conftest -g -O2 -D_REENTRANT   conftest.c -lresolv  -lpthread  >&5
-/tmp/ccsiBsZV.o: In function `main':
-/mnt/hgfs/centos_share/Me/Server/configure:2629: undefined reference to `res_init'
+configure:2590: result: no
+configure:2601: checking for library containing socket
+configure:2632: gcc -o conftest -g -O2 -D_REENTRANT -D_REENTRANT   conftest.c -lpthread -levent  >&5
+configure:2635: $? = 0
+configure:2638: test -s conftest
+configure:2641: $? = 0
+configure:2700: result: none required
+configure:2708: checking for /usr/local/bind/lib/libbind.a
+configure:2715: result: no
+configure:2717: checking for /root/libbind.a
+configure:2724: result: no
+configure:2726: checking for /root/libresolv.a
+configure:2733: result: no
+configure:2736: checking for res_init in -lresolv
+configure:2767: gcc -o conftest -g -O2 -D_REENTRANT -D_REENTRANT   conftest.c -lresolv  -lpthread -levent  >&5
+/tmp/cc8ACJcm.o: In function `main':
+/mnt/hgfs/centos_share/Me/Server/configure:2765: undefined reference to `res_init'
 collect2: ld returned 1 exit status
-configure:2635: $? = 1
+configure:2770: $? = 1
 configure: failed program was:
-| #line 2608 "configure"
+| #line 2743 "configure"
 | /* confdefs.h.  */
 | 
 | #define PACKAGE_NAME ""
@@ -182,6 +189,7 @@ configure: failed program was:
 | #define PACKAGE_STRING ""
 | #define PACKAGE_BUGREPORT ""
 | #define CPU_VENDOR_OS "i686-pc-linux-gnu"
+| #define HAVE_LIBPTHREAD 1
 | #define HAVE_LIBPTHREAD 1
 | /* end confdefs.h.  */
 | 
@@ -199,14 +207,14 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:2653: result: no
-configure:2669: checking for t_open in -lxti
-configure:2700: gcc -o conftest -g -O2 -D_REENTRANT   conftest.c -lxti  -lpthread  >&5
+configure:2788: result: no
+configure:2804: checking for t_open in -lxti
+configure:2835: gcc -o conftest -g -O2 -D_REENTRANT -D_REENTRANT   conftest.c -lxti  -lpthread -levent  >&5
 /usr/bin/ld: cannot find -lxti
 collect2: ld returned 1 exit status
-configure:2703: $? = 1
+configure:2838: $? = 1
 configure: failed program was:
-| #line 2676 "configure"
+| #line 2811 "configure"
 | /* confdefs.h.  */
 | 
 | #define PACKAGE_NAME ""
@@ -215,6 +223,7 @@ configure: failed program was:
 | #define PACKAGE_STRING ""
 | #define PACKAGE_BUGREPORT ""
 | #define CPU_VENDOR_OS "i686-pc-linux-gnu"
+| #define HAVE_LIBPTHREAD 1
 | #define HAVE_LIBPTHREAD 1
 | /* end confdefs.h.  */
 | 
@@ -232,15 +241,17 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:2721: result: no
-configure:2766: checking how to run the C preprocessor
-configure:2802: gcc -E  conftest.c
-configure:2808: $? = 0
-configure:2840: gcc -E  conftest.c
-configure:2841:28: error: ac_nonexistent.h: No such file or directory
-configure:2846: $? = 1
+configure:2856: result: no
+configure:2868: checking for /root/libgame.a
+configure:2876: result: no
+configure:2901: checking how to run the C preprocessor
+configure:2937: gcc -E  conftest.c
+configure:2943: $? = 0
+configure:2975: gcc -E  conftest.c
+configure:2977:28: error: ac_nonexistent.h: No such file or directory
+configure:2981: $? = 1
 configure: failed program was:
-| #line 2831 "configure"
+| #line 2966 "configure"
 | /* confdefs.h.  */
 | 
 | #define PACKAGE_NAME ""
@@ -250,16 +261,17 @@ configure: failed program was:
 | #define PACKAGE_BUGREPORT ""
 | #define CPU_VENDOR_OS "i686-pc-linux-gnu"
 | #define HAVE_LIBPTHREAD 1
+| #define HAVE_LIBPTHREAD 1
 | /* end confdefs.h.  */
 | #include <ac_nonexistent.h>
-configure:2884: result: gcc -E
-configure:2909: gcc -E  conftest.c
-configure:2915: $? = 0
-configure:2947: gcc -E  conftest.c
-configure:2948:28: error: ac_nonexistent.h: No such file or directory
-configure:2953: $? = 1
+configure:3019: result: gcc -E
+configure:3044: gcc -E  conftest.c
+configure:3050: $? = 0
+configure:3082: gcc -E  conftest.c
+configure:3084:28: error: ac_nonexistent.h: No such file or directory
+configure:3088: $? = 1
 configure: failed program was:
-| #line 2938 "configure"
+| #line 3073 "configure"
 | /* confdefs.h.  */
 | 
 | #define PACKAGE_NAME ""
@@ -269,160 +281,26 @@ configure: failed program was:
 | #define PACKAGE_BUGREPORT ""
 | #define CPU_VENDOR_OS "i686-pc-linux-gnu"
 | #define HAVE_LIBPTHREAD 1
+| #define HAVE_LIBPTHREAD 1
 | /* end confdefs.h.  */
 | #include <ac_nonexistent.h>
-configure:2996: checking for egrep
-configure:3006: result: grep -E
-configure:3011: checking for ANSI C header files
-configure:3037: gcc -c -g -O2 -D_REENTRANT  conftest.c >&5
-configure:3040: $? = 0
-configure:3043: test -s conftest.o
-configure:3046: $? = 0
-configure:3138: gcc -o conftest -g -O2 -D_REENTRANT   conftest.c -lpthread  >&5
+configure:3130: checking for egrep
+configure:3140: result: grep -E
+configure:3145: checking for ANSI C header files
+configure:3171: gcc -c -g -O2 -D_REENTRANT -D_REENTRANT  conftest.c >&5
+configure:3174: $? = 0
+configure:3177: test -s conftest.o
+configure:3180: $? = 0
+configure:3272: gcc -o conftest -g -O2 -D_REENTRANT -D_REENTRANT   conftest.c -lpthread -levent  >&5
 configure: In function 'main':
-configure:3133: warning: incompatible implicit declaration of built-in function 'exit'
-configure:3141: $? = 0
-configure:3143: ./conftest
-configure:3146: $? = 0
-configure:3161: result: yes
-configure:3208: checking for sys/types.h
-configure:3262: gcc -c -g -O2 -D_REENTRANT  conftest.c >&5
-configure:3265: $? = 0
-configure:3268: test -s conftest.o
-configure:3271: $? = 0
-configure:3282: result: yes
-configure:3208: checking for sys/socket.h
-configure:3262: gcc -c -g -O2 -D_REENTRANT  conftest.c >&5
-configure:3265: $? = 0
-configure:3268: test -s conftest.o
-configure:3271: $? = 0
-configure:3282: result: yes
-configure:3208: checking for sys/time.h
-configure:3262: gcc -c -g -O2 -D_REENTRANT  conftest.c >&5
-configure:3265: $? = 0
-configure:3268: test -s conftest.o
-configure:3271: $? = 0
-configure:3282: result: yes
-configure:3208: checking for time.h
-configure:3262: gcc -c -g -O2 -D_REENTRANT  conftest.c >&5
-configure:3265: $? = 0
-configure:3268: test -s conftest.o
-configure:3271: $? = 0
-configure:3282: result: yes
-configure:3208: checking for netinet/in.h
-configure:3262: gcc -c -g -O2 -D_REENTRANT  conftest.c >&5
-configure:3265: $? = 0
-configure:3268: test -s conftest.o
-configure:3271: $? = 0
-configure:3282: result: yes
-configure:3208: checking for arpa/inet.h
-configure:3262: gcc -c -g -O2 -D_REENTRANT  conftest.c >&5
-configure:3265: $? = 0
-configure:3268: test -s conftest.o
-configure:3271: $? = 0
-configure:3282: result: yes
-configure:3208: checking for errno.h
-configure:3262: gcc -c -g -O2 -D_REENTRANT  conftest.c >&5
-configure:3265: $? = 0
-configure:3268: test -s conftest.o
-configure:3271: $? = 0
-configure:3282: result: yes
-configure:3208: checking for fcntl.h
-configure:3262: gcc -c -g -O2 -D_REENTRANT  conftest.c >&5
-configure:3265: $? = 0
-configure:3268: test -s conftest.o
-configure:3271: $? = 0
-configure:3282: result: yes
-configure:3208: checking for netdb.h
-configure:3262: gcc -c -g -O2 -D_REENTRANT  conftest.c >&5
-configure:3265: $? = 0
-configure:3268: test -s conftest.o
-configure:3271: $? = 0
-configure:3282: result: yes
-configure:3208: checking for signal.h
-configure:3262: gcc -c -g -O2 -D_REENTRANT  conftest.c >&5
-configure:3265: $? = 0
-configure:3268: test -s conftest.o
-configure:3271: $? = 0
-configure:3282: result: yes
-configure:3208: checking for stdio.h
-configure:3262: gcc -c -g -O2 -D_REENTRANT  conftest.c >&5
-configure:3265: $? = 0
-configure:3268: test -s conftest.o
-configure:3271: $? = 0
-configure:3282: result: yes
-configure:3208: checking for stdlib.h
-configure:3262: gcc -c -g -O2 -D_REENTRANT  conftest.c >&5
-configure:3265: $? = 0
-configure:3268: test -s conftest.o
-configure:3271: $? = 0
-configure:3282: result: yes
-configure:3208: checking for string.h
-configure:3262: gcc -c -g -O2 -D_REENTRANT  conftest.c >&5
-configure:3265: $? = 0
-configure:3268: test -s conftest.o
-configure:3271: $? = 0
-configure:3282: result: yes
-configure:3208: checking for sys/stat.h
-configure:3262: gcc -c -g -O2 -D_REENTRANT  conftest.c >&5
-configure:3265: $? = 0
-configure:3268: test -s conftest.o
-configure:3271: $? = 0
-configure:3282: result: yes
-configure:3208: checking for sys/uio.h
-configure:3262: gcc -c -g -O2 -D_REENTRANT  conftest.c >&5
-configure:3265: $? = 0
-configure:3268: test -s conftest.o
-configure:3271: $? = 0
-configure:3282: result: yes
-configure:3208: checking for unistd.h
-configure:3262: gcc -c -g -O2 -D_REENTRANT  conftest.c >&5
-configure:3265: $? = 0
-configure:3268: test -s conftest.o
-configure:3271: $? = 0
-configure:3282: result: yes
-configure:3208: checking for sys/wait.h
-configure:3262: gcc -c -g -O2 -D_REENTRANT  conftest.c >&5
-configure:3265: $? = 0
-configure:3268: test -s conftest.o
-configure:3271: $? = 0
-configure:3282: result: yes
-configure:3208: checking for sys/un.h
-configure:3262: gcc -c -g -O2 -D_REENTRANT  conftest.c >&5
-configure:3265: $? = 0
-configure:3268: test -s conftest.o
-configure:3271: $? = 0
-configure:3282: result: yes
-configure:3208: checking for sys/param.h
-configure:3262: gcc -c -g -O2 -D_REENTRANT  conftest.c >&5
-configure:3265: $? = 0
-configure:3268: test -s conftest.o
-configure:3271: $? = 0
-configure:3282: result: yes
-configure:3208: checking for sys/select.h
-configure:3262: gcc -c -g -O2 -D_REENTRANT  conftest.c >&5
-configure:3265: $? = 0
-configure:3268: test -s conftest.o
-configure:3271: $? = 0
-configure:3282: result: yes
-configure:3208: checking for sys/sysctl.h
-configure:3262: gcc -c -g -O2 -D_REENTRANT  conftest.c >&5
-configure:3265: $? = 0
-configure:3268: test -s conftest.o
-configure:3271: $? = 0
-configure:3282: result: yes
-configure:3208: checking for poll.h
-configure:3262: gcc -c -g -O2 -D_REENTRANT  conftest.c >&5
-configure:3265: $? = 0
-configure:3268: test -s conftest.o
-configure:3271: $? = 0
-configure:3282: result: yes
-configure:3208: checking for sys/event.h
-configure:3262: gcc -c -g -O2 -D_REENTRANT  conftest.c >&5
-configure:3285:23: error: sys/event.h: No such file or directory
-configure:3265: $? = 1
+configure:3268: warning: incompatible implicit declaration of built-in function 'exit'
+configure:3275: $? = 0
+configure:3277: ./conftest
+./conftest: error while loading shared libraries: libevent-2.0.so.5: cannot open shared object file: Error 40
+configure:3280: $? = 127
+configure: program exited with status 127
 configure: failed program was:
-| #line 3213 "configure"
+| #line 3240 "configure"
 | /* confdefs.h.  */
 | 
 | #define PACKAGE_NAME ""
@@ -432,7 +310,177 @@ configure: failed program was:
 | #define PACKAGE_BUGREPORT ""
 | #define CPU_VENDOR_OS "i686-pc-linux-gnu"
 | #define HAVE_LIBPTHREAD 1
-| #define STDC_HEADERS 1
+| #define HAVE_LIBPTHREAD 1
+| /* end confdefs.h.  */
+| #include <ctype.h>
+| #if ((' ' & 0x0FF) == 0x020)
+| # define ISLOWER(c) ('a' <= (c) && (c) <= 'z')
+| # define TOUPPER(c) (ISLOWER(c) ? 'A' + ((c) - 'a') : (c))
+| #else
+| # define ISLOWER(c)                    (('a' <= (c) && (c) <= 'i')                      || ('j' <= (c) && (c) <= 'r')                      || ('s' <= (c) && (c) <= 'z'))
+| # define TOUPPER(c) (ISLOWER(c) ? ((c) | 0x40) : (c))
+| #endif
+| 
+| #define XOR(e, f) (((e) && !(f)) || (!(e) && (f)))
+| int
+| main ()
+| {
+|   int i;
+|   for (i = 0; i < 256; i++)
+|     if (XOR (islower (i), ISLOWER (i))
+|         || toupper (i) != TOUPPER (i))
+|       exit(2);
+|   exit (0);
+| }
+configure:3295: result: no
+configure:3342: checking for sys/types.h
+configure:3396: gcc -c -g -O2 -D_REENTRANT -D_REENTRANT  conftest.c >&5
+configure:3399: $? = 0
+configure:3402: test -s conftest.o
+configure:3405: $? = 0
+configure:3416: result: yes
+configure:3342: checking for sys/socket.h
+configure:3396: gcc -c -g -O2 -D_REENTRANT -D_REENTRANT  conftest.c >&5
+configure:3399: $? = 0
+configure:3402: test -s conftest.o
+configure:3405: $? = 0
+configure:3416: result: yes
+configure:3342: checking for sys/time.h
+configure:3396: gcc -c -g -O2 -D_REENTRANT -D_REENTRANT  conftest.c >&5
+configure:3399: $? = 0
+configure:3402: test -s conftest.o
+configure:3405: $? = 0
+configure:3416: result: yes
+configure:3342: checking for time.h
+configure:3396: gcc -c -g -O2 -D_REENTRANT -D_REENTRANT  conftest.c >&5
+configure:3399: $? = 0
+configure:3402: test -s conftest.o
+configure:3405: $? = 0
+configure:3416: result: yes
+configure:3342: checking for netinet/in.h
+configure:3396: gcc -c -g -O2 -D_REENTRANT -D_REENTRANT  conftest.c >&5
+configure:3399: $? = 0
+configure:3402: test -s conftest.o
+configure:3405: $? = 0
+configure:3416: result: yes
+configure:3342: checking for arpa/inet.h
+configure:3396: gcc -c -g -O2 -D_REENTRANT -D_REENTRANT  conftest.c >&5
+configure:3399: $? = 0
+configure:3402: test -s conftest.o
+configure:3405: $? = 0
+configure:3416: result: yes
+configure:3342: checking for errno.h
+configure:3396: gcc -c -g -O2 -D_REENTRANT -D_REENTRANT  conftest.c >&5
+configure:3399: $? = 0
+configure:3402: test -s conftest.o
+configure:3405: $? = 0
+configure:3416: result: yes
+configure:3342: checking for fcntl.h
+configure:3396: gcc -c -g -O2 -D_REENTRANT -D_REENTRANT  conftest.c >&5
+configure:3399: $? = 0
+configure:3402: test -s conftest.o
+configure:3405: $? = 0
+configure:3416: result: yes
+configure:3342: checking for netdb.h
+configure:3396: gcc -c -g -O2 -D_REENTRANT -D_REENTRANT  conftest.c >&5
+configure:3399: $? = 0
+configure:3402: test -s conftest.o
+configure:3405: $? = 0
+configure:3416: result: yes
+configure:3342: checking for signal.h
+configure:3396: gcc -c -g -O2 -D_REENTRANT -D_REENTRANT  conftest.c >&5
+configure:3399: $? = 0
+configure:3402: test -s conftest.o
+configure:3405: $? = 0
+configure:3416: result: yes
+configure:3342: checking for stdio.h
+configure:3396: gcc -c -g -O2 -D_REENTRANT -D_REENTRANT  conftest.c >&5
+configure:3399: $? = 0
+configure:3402: test -s conftest.o
+configure:3405: $? = 0
+configure:3416: result: yes
+configure:3342: checking for stdlib.h
+configure:3396: gcc -c -g -O2 -D_REENTRANT -D_REENTRANT  conftest.c >&5
+configure:3399: $? = 0
+configure:3402: test -s conftest.o
+configure:3405: $? = 0
+configure:3416: result: yes
+configure:3342: checking for string.h
+configure:3396: gcc -c -g -O2 -D_REENTRANT -D_REENTRANT  conftest.c >&5
+configure:3399: $? = 0
+configure:3402: test -s conftest.o
+configure:3405: $? = 0
+configure:3416: result: yes
+configure:3342: checking for sys/stat.h
+configure:3396: gcc -c -g -O2 -D_REENTRANT -D_REENTRANT  conftest.c >&5
+configure:3399: $? = 0
+configure:3402: test -s conftest.o
+configure:3405: $? = 0
+configure:3416: result: yes
+configure:3342: checking for sys/uio.h
+configure:3396: gcc -c -g -O2 -D_REENTRANT -D_REENTRANT  conftest.c >&5
+configure:3399: $? = 0
+configure:3402: test -s conftest.o
+configure:3405: $? = 0
+configure:3416: result: yes
+configure:3342: checking for unistd.h
+configure:3396: gcc -c -g -O2 -D_REENTRANT -D_REENTRANT  conftest.c >&5
+configure:3399: $? = 0
+configure:3402: test -s conftest.o
+configure:3405: $? = 0
+configure:3416: result: yes
+configure:3342: checking for sys/wait.h
+configure:3396: gcc -c -g -O2 -D_REENTRANT -D_REENTRANT  conftest.c >&5
+configure:3399: $? = 0
+configure:3402: test -s conftest.o
+configure:3405: $? = 0
+configure:3416: result: yes
+configure:3342: checking for sys/un.h
+configure:3396: gcc -c -g -O2 -D_REENTRANT -D_REENTRANT  conftest.c >&5
+configure:3399: $? = 0
+configure:3402: test -s conftest.o
+configure:3405: $? = 0
+configure:3416: result: yes
+configure:3342: checking for sys/param.h
+configure:3396: gcc -c -g -O2 -D_REENTRANT -D_REENTRANT  conftest.c >&5
+configure:3399: $? = 0
+configure:3402: test -s conftest.o
+configure:3405: $? = 0
+configure:3416: result: yes
+configure:3342: checking for sys/select.h
+configure:3396: gcc -c -g -O2 -D_REENTRANT -D_REENTRANT  conftest.c >&5
+configure:3399: $? = 0
+configure:3402: test -s conftest.o
+configure:3405: $? = 0
+configure:3416: result: yes
+configure:3342: checking for sys/sysctl.h
+configure:3396: gcc -c -g -O2 -D_REENTRANT -D_REENTRANT  conftest.c >&5
+configure:3399: $? = 0
+configure:3402: test -s conftest.o
+configure:3405: $? = 0
+configure:3416: result: yes
+configure:3342: checking for poll.h
+configure:3396: gcc -c -g -O2 -D_REENTRANT -D_REENTRANT  conftest.c >&5
+configure:3399: $? = 0
+configure:3402: test -s conftest.o
+configure:3405: $? = 0
+configure:3416: result: yes
+configure:3342: checking for sys/event.h
+configure:3396: gcc -c -g -O2 -D_REENTRANT -D_REENTRANT  conftest.c >&5
+configure:3419:23: error: sys/event.h: No such file or directory
+configure:3399: $? = 1
+configure: failed program was:
+| #line 3347 "configure"
+| /* confdefs.h.  */
+| 
+| #define PACKAGE_NAME ""
+| #define PACKAGE_TARNAME ""
+| #define PACKAGE_VERSION ""
+| #define PACKAGE_STRING ""
+| #define PACKAGE_BUGREPORT ""
+| #define CPU_VENDOR_OS "i686-pc-linux-gnu"
+| #define HAVE_LIBPTHREAD 1
+| #define HAVE_LIBPTHREAD 1
 | #define HAVE_SYS_TYPES_H 1
 | #define HAVE_SYS_SOCKET_H 1
 | #define HAVE_SYS_TIME_H 1
@@ -496,25 +544,25 @@ configure: failed program was:
 | #endif
 | 
 | #include <sys/event.h>
-configure:3282: result: no
-configure:3208: checking for strings.h
-configure:3262: gcc -c -g -O2 -D_REENTRANT  conftest.c >&5
-configure:3265: $? = 0
-configure:3268: test -s conftest.o
-configure:3271: $? = 0
-configure:3282: result: yes
-configure:3208: checking for sys/ioctl.h
-configure:3262: gcc -c -g -O2 -D_REENTRANT  conftest.c >&5
-configure:3265: $? = 0
-configure:3268: test -s conftest.o
-configure:3271: $? = 0
-configure:3282: result: yes
-configure:3208: checking for sys/filio.h
-configure:3262: gcc -c -g -O2 -D_REENTRANT  conftest.c >&5
-configure:3287:23: error: sys/filio.h: No such file or directory
-configure:3265: $? = 1
+configure:3416: result: no
+configure:3342: checking for strings.h
+configure:3396: gcc -c -g -O2 -D_REENTRANT -D_REENTRANT  conftest.c >&5
+configure:3399: $? = 0
+configure:3402: test -s conftest.o
+configure:3405: $? = 0
+configure:3416: result: yes
+configure:3342: checking for sys/ioctl.h
+configure:3396: gcc -c -g -O2 -D_REENTRANT -D_REENTRANT  conftest.c >&5
+configure:3399: $? = 0
+configure:3402: test -s conftest.o
+configure:3405: $? = 0
+configure:3416: result: yes
+configure:3342: checking for sys/filio.h
+configure:3396: gcc -c -g -O2 -D_REENTRANT -D_REENTRANT  conftest.c >&5
+configure:3421:23: error: sys/filio.h: No such file or directory
+configure:3399: $? = 1
 configure: failed program was:
-| #line 3213 "configure"
+| #line 3347 "configure"
 | /* confdefs.h.  */
 | 
 | #define PACKAGE_NAME ""
@@ -524,7 +572,7 @@ configure: failed program was:
 | #define PACKAGE_BUGREPORT ""
 | #define CPU_VENDOR_OS "i686-pc-linux-gnu"
 | #define HAVE_LIBPTHREAD 1
-| #define STDC_HEADERS 1
+| #define HAVE_LIBPTHREAD 1
 | #define HAVE_SYS_TYPES_H 1
 | #define HAVE_SYS_SOCKET_H 1
 | #define HAVE_SYS_TIME_H 1
@@ -590,13 +638,13 @@ configure: failed program was:
 | #endif
 | 
 | #include <sys/filio.h>
-configure:3282: result: no
-configure:3208: checking for sys/sockio.h
-configure:3262: gcc -c -g -O2 -D_REENTRANT  conftest.c >&5
-configure:3287:24: error: sys/sockio.h: No such file or directory
-configure:3265: $? = 1
+configure:3416: result: no
+configure:3342: checking for sys/sockio.h
+configure:3396: gcc -c -g -O2 -D_REENTRANT -D_REENTRANT  conftest.c >&5
+configure:3421:24: error: sys/sockio.h: No such file or directory
+configure:3399: $? = 1
 configure: failed program was:
-| #line 3213 "configure"
+| #line 3347 "configure"
 | /* confdefs.h.  */
 | 
 | #define PACKAGE_NAME ""
@@ -606,7 +654,7 @@ configure: failed program was:
 | #define PACKAGE_BUGREPORT ""
 | #define CPU_VENDOR_OS "i686-pc-linux-gnu"
 | #define HAVE_LIBPTHREAD 1
-| #define STDC_HEADERS 1
+| #define HAVE_LIBPTHREAD 1
 | #define HAVE_SYS_TYPES_H 1
 | #define HAVE_SYS_SOCKET_H 1
 | #define HAVE_SYS_TIME_H 1
@@ -672,19 +720,19 @@ configure: failed program was:
 | #endif
 | 
 | #include <sys/sockio.h>
-configure:3282: result: no
-configure:3208: checking for pthread.h
-configure:3262: gcc -c -g -O2 -D_REENTRANT  conftest.c >&5
-configure:3265: $? = 0
-configure:3268: test -s conftest.o
-configure:3271: $? = 0
-configure:3282: result: yes
-configure:3208: checking for net/if_dl.h
-configure:3262: gcc -c -g -O2 -D_REENTRANT  conftest.c >&5
-configure:3288:23: error: net/if_dl.h: No such file or directory
-configure:3265: $? = 1
+configure:3416: result: no
+configure:3342: checking for pthread.h
+configure:3396: gcc -c -g -O2 -D_REENTRANT -D_REENTRANT  conftest.c >&5
+configure:3399: $? = 0
+configure:3402: test -s conftest.o
+configure:3405: $? = 0
+configure:3416: result: yes
+configure:3342: checking for net/if_dl.h
+configure:3396: gcc -c -g -O2 -D_REENTRANT -D_REENTRANT  conftest.c >&5
+configure:3422:23: error: net/if_dl.h: No such file or directory
+configure:3399: $? = 1
 configure: failed program was:
-| #line 3213 "configure"
+| #line 3347 "configure"
 | /* confdefs.h.  */
 | 
 | #define PACKAGE_NAME ""
@@ -694,7 +742,7 @@ configure: failed program was:
 | #define PACKAGE_BUGREPORT ""
 | #define CPU_VENDOR_OS "i686-pc-linux-gnu"
 | #define HAVE_LIBPTHREAD 1
-| #define STDC_HEADERS 1
+| #define HAVE_LIBPTHREAD 1
 | #define HAVE_SYS_TYPES_H 1
 | #define HAVE_SYS_SOCKET_H 1
 | #define HAVE_SYS_TIME_H 1
@@ -761,13 +809,13 @@ configure: failed program was:
 | #endif
 | 
 | #include <net/if_dl.h>
-configure:3282: result: no
-configure:3208: checking for xti.h
-configure:3262: gcc -c -g -O2 -D_REENTRANT  conftest.c >&5
-configure:3288:17: error: xti.h: No such file or directory
-configure:3265: $? = 1
+configure:3416: result: no
+configure:3342: checking for xti.h
+configure:3396: gcc -c -g -O2 -D_REENTRANT -D_REENTRANT  conftest.c >&5
+configure:3422:17: error: xti.h: No such file or directory
+configure:3399: $? = 1
 configure: failed program was:
-| #line 3213 "configure"
+| #line 3347 "configure"
 | /* confdefs.h.  */
 | 
 | #define PACKAGE_NAME ""
@@ -777,7 +825,7 @@ configure: failed program was:
 | #define PACKAGE_BUGREPORT ""
 | #define CPU_VENDOR_OS "i686-pc-linux-gnu"
 | #define HAVE_LIBPTHREAD 1
-| #define STDC_HEADERS 1
+| #define HAVE_LIBPTHREAD 1
 | #define HAVE_SYS_TYPES_H 1
 | #define HAVE_SYS_SOCKET_H 1
 | #define HAVE_SYS_TIME_H 1
@@ -844,13 +892,13 @@ configure: failed program was:
 | #endif
 | 
 | #include <xti.h>
-configure:3282: result: no
-configure:3208: checking for xti_inet.h
-configure:3262: gcc -c -g -O2 -D_REENTRANT  conftest.c >&5
-configure:3288:22: error: xti_inet.h: No such file or directory
-configure:3265: $? = 1
+configure:3416: result: no
+configure:3342: checking for xti_inet.h
+configure:3396: gcc -c -g -O2 -D_REENTRANT -D_REENTRANT  conftest.c >&5
+configure:3422:22: error: xti_inet.h: No such file or directory
+configure:3399: $? = 1
 configure: failed program was:
-| #line 3213 "configure"
+| #line 3347 "configure"
 | /* confdefs.h.  */
 | 
 | #define PACKAGE_NAME ""
@@ -860,7 +908,7 @@ configure: failed program was:
 | #define PACKAGE_BUGREPORT ""
 | #define CPU_VENDOR_OS "i686-pc-linux-gnu"
 | #define HAVE_LIBPTHREAD 1
-| #define STDC_HEADERS 1
+| #define HAVE_LIBPTHREAD 1
 | #define HAVE_SYS_TYPES_H 1
 | #define HAVE_SYS_SOCKET_H 1
 | #define HAVE_SYS_TIME_H 1
@@ -927,13 +975,13 @@ configure: failed program was:
 | #endif
 | 
 | #include <xti_inet.h>
-configure:3282: result: no
-configure:3208: checking for netconfig.h
-configure:3262: gcc -c -g -O2 -D_REENTRANT  conftest.c >&5
-configure:3288:23: error: netconfig.h: No such file or directory
-configure:3265: $? = 1
+configure:3416: result: no
+configure:3342: checking for netconfig.h
+configure:3396: gcc -c -g -O2 -D_REENTRANT -D_REENTRANT  conftest.c >&5
+configure:3422:23: error: netconfig.h: No such file or directory
+configure:3399: $? = 1
 configure: failed program was:
-| #line 3213 "configure"
+| #line 3347 "configure"
 | /* confdefs.h.  */
 | 
 | #define PACKAGE_NAME ""
@@ -943,7 +991,7 @@ configure: failed program was:
 | #define PACKAGE_BUGREPORT ""
 | #define CPU_VENDOR_OS "i686-pc-linux-gnu"
 | #define HAVE_LIBPTHREAD 1
-| #define STDC_HEADERS 1
+| #define HAVE_LIBPTHREAD 1
 | #define HAVE_SYS_TYPES_H 1
 | #define HAVE_SYS_SOCKET_H 1
 | #define HAVE_SYS_TIME_H 1
@@ -1010,13 +1058,13 @@ configure: failed program was:
 | #endif
 | 
 | #include <netconfig.h>
-configure:3282: result: no
-configure:3208: checking for netdir.h
-configure:3262: gcc -c -g -O2 -D_REENTRANT  conftest.c >&5
-configure:3288:20: error: netdir.h: No such file or directory
-configure:3265: $? = 1
+configure:3416: result: no
+configure:3342: checking for netdir.h
+configure:3396: gcc -c -g -O2 -D_REENTRANT -D_REENTRANT  conftest.c >&5
+configure:3422:20: error: netdir.h: No such file or directory
+configure:3399: $? = 1
 configure: failed program was:
-| #line 3213 "configure"
+| #line 3347 "configure"
 | /* confdefs.h.  */
 | 
 | #define PACKAGE_NAME ""
@@ -1026,7 +1074,7 @@ configure: failed program was:
 | #define PACKAGE_BUGREPORT ""
 | #define CPU_VENDOR_OS "i686-pc-linux-gnu"
 | #define HAVE_LIBPTHREAD 1
-| #define STDC_HEADERS 1
+| #define HAVE_LIBPTHREAD 1
 | #define HAVE_SYS_TYPES_H 1
 | #define HAVE_SYS_SOCKET_H 1
 | #define HAVE_SYS_TIME_H 1
@@ -1093,83 +1141,83 @@ configure: failed program was:
 | #endif
 | 
 | #include <netdir.h>
-configure:3282: result: no
-configure:3208: checking for stropts.h
-configure:3262: gcc -c -g -O2 -D_REENTRANT  conftest.c >&5
-configure:3265: $? = 0
-configure:3268: test -s conftest.o
-configure:3271: $? = 0
-configure:3282: result: yes
-configure:3294: checking whether time.h and sys/time.h may both be included
-configure:3320: gcc -c -g -O2 -D_REENTRANT  conftest.c >&5
-configure:3323: $? = 0
-configure:3326: test -s conftest.o
-configure:3329: $? = 0
-configure:3340: result: yes
-configure:3350: checking if uint8_t defined
-configure:3442: gcc -c -g -O2 -D_REENTRANT  conftest.c >&5
-configure:3445: $? = 0
-configure:3448: test -s conftest.o
-configure:3451: $? = 0
-configure:3463: result: yes
-configure:3473: checking if int16_t defined
-configure:3565: gcc -c -g -O2 -D_REENTRANT  conftest.c >&5
-configure:3568: $? = 0
-configure:3571: test -s conftest.o
-configure:3574: $? = 0
-configure:3586: result: yes
-configure:3596: checking if uint16_t defined
-configure:3688: gcc -c -g -O2 -D_REENTRANT  conftest.c >&5
-configure:3691: $? = 0
-configure:3694: test -s conftest.o
-configure:3697: $? = 0
-configure:3709: result: yes
-configure:3719: checking if int32_t defined
-configure:3811: gcc -c -g -O2 -D_REENTRANT  conftest.c >&5
-configure:3814: $? = 0
-configure:3817: test -s conftest.o
-configure:3820: $? = 0
-configure:3832: result: yes
-configure:3842: checking if uint32_t defined
-configure:3934: gcc -c -g -O2 -D_REENTRANT  conftest.c >&5
-configure:3937: $? = 0
-configure:3940: test -s conftest.o
-configure:3943: $? = 0
-configure:3955: result: yes
-configure:3965: checking if size_t defined
-configure:4057: gcc -c -g -O2 -D_REENTRANT  conftest.c >&5
-configure:4060: $? = 0
-configure:4063: test -s conftest.o
-configure:4066: $? = 0
-configure:4078: result: yes
-configure:4088: checking if ssize_t defined
-configure:4180: gcc -c -g -O2 -D_REENTRANT  conftest.c >&5
-configure:4183: $? = 0
-configure:4186: test -s conftest.o
-configure:4189: $? = 0
-configure:4201: result: yes
-configure:4211: checking if socklen_t defined
-configure:4303: gcc -c -g -O2 -D_REENTRANT  conftest.c >&5
-configure:4306: $? = 0
-configure:4309: test -s conftest.o
-configure:4312: $? = 0
-configure:4324: result: yes
-configure:4334: checking if sa_family_t defined
-configure:4426: gcc -c -g -O2 -D_REENTRANT  conftest.c >&5
-configure:4429: $? = 0
-configure:4432: test -s conftest.o
-configure:4435: $? = 0
-configure:4447: result: yes
-configure:4458: checking if t_scalar_t defined
-configure:4565: gcc -c -g -O2 -D_REENTRANT  conftest.c >&5
+configure:3416: result: no
+configure:3342: checking for stropts.h
+configure:3396: gcc -c -g -O2 -D_REENTRANT -D_REENTRANT  conftest.c >&5
+configure:3399: $? = 0
+configure:3402: test -s conftest.o
+configure:3405: $? = 0
+configure:3416: result: yes
+configure:3428: checking whether time.h and sys/time.h may both be included
+configure:3454: gcc -c -g -O2 -D_REENTRANT -D_REENTRANT  conftest.c >&5
+configure:3457: $? = 0
+configure:3460: test -s conftest.o
+configure:3463: $? = 0
+configure:3474: result: yes
+configure:3484: checking if uint8_t defined
+configure:3576: gcc -c -g -O2 -D_REENTRANT -D_REENTRANT  conftest.c >&5
+configure:3579: $? = 0
+configure:3582: test -s conftest.o
+configure:3585: $? = 0
+configure:3597: result: yes
+configure:3607: checking if int16_t defined
+configure:3699: gcc -c -g -O2 -D_REENTRANT -D_REENTRANT  conftest.c >&5
+configure:3702: $? = 0
+configure:3705: test -s conftest.o
+configure:3708: $? = 0
+configure:3720: result: yes
+configure:3730: checking if uint16_t defined
+configure:3822: gcc -c -g -O2 -D_REENTRANT -D_REENTRANT  conftest.c >&5
+configure:3825: $? = 0
+configure:3828: test -s conftest.o
+configure:3831: $? = 0
+configure:3843: result: yes
+configure:3853: checking if int32_t defined
+configure:3945: gcc -c -g -O2 -D_REENTRANT -D_REENTRANT  conftest.c >&5
+configure:3948: $? = 0
+configure:3951: test -s conftest.o
+configure:3954: $? = 0
+configure:3966: result: yes
+configure:3976: checking if uint32_t defined
+configure:4068: gcc -c -g -O2 -D_REENTRANT -D_REENTRANT  conftest.c >&5
+configure:4071: $? = 0
+configure:4074: test -s conftest.o
+configure:4077: $? = 0
+configure:4089: result: yes
+configure:4099: checking if size_t defined
+configure:4191: gcc -c -g -O2 -D_REENTRANT -D_REENTRANT  conftest.c >&5
+configure:4194: $? = 0
+configure:4197: test -s conftest.o
+configure:4200: $? = 0
+configure:4212: result: yes
+configure:4222: checking if ssize_t defined
+configure:4314: gcc -c -g -O2 -D_REENTRANT -D_REENTRANT  conftest.c >&5
+configure:4317: $? = 0
+configure:4320: test -s conftest.o
+configure:4323: $? = 0
+configure:4335: result: yes
+configure:4345: checking if socklen_t defined
+configure:4437: gcc -c -g -O2 -D_REENTRANT -D_REENTRANT  conftest.c >&5
+configure:4440: $? = 0
+configure:4443: test -s conftest.o
+configure:4446: $? = 0
+configure:4458: result: yes
+configure:4468: checking if sa_family_t defined
+configure:4560: gcc -c -g -O2 -D_REENTRANT -D_REENTRANT  conftest.c >&5
+configure:4563: $? = 0
+configure:4566: test -s conftest.o
+configure:4569: $? = 0
+configure:4581: result: yes
+configure:4592: checking if t_scalar_t defined
+configure:4699: gcc -c -g -O2 -D_REENTRANT -D_REENTRANT  conftest.c >&5
 configure: In function 'main':
-configure:4590: error: 't_scalar_t' undeclared (first use in this function)
-configure:4590: error: (Each undeclared identifier is reported only once
-configure:4590: error: for each function it appears in.)
-configure:4590: error: expected ';' before 'foo'
-configure:4568: $? = 1
+configure:4724: error: 't_scalar_t' undeclared (first use in this function)
+configure:4724: error: (Each undeclared identifier is reported only once
+configure:4724: error: for each function it appears in.)
+configure:4724: error: expected ';' before 'foo'
+configure:4702: $? = 1
 configure: failed program was:
-| #line 4463 "configure"
+| #line 4597 "configure"
 | /* confdefs.h.  */
 | 
 | #define PACKAGE_NAME ""
@@ -1179,7 +1227,7 @@ configure: failed program was:
 | #define PACKAGE_BUGREPORT ""
 | #define CPU_VENDOR_OS "i686-pc-linux-gnu"
 | #define HAVE_LIBPTHREAD 1
-| #define STDC_HEADERS 1
+| #define HAVE_LIBPTHREAD 1
 | #define HAVE_SYS_TYPES_H 1
 | #define HAVE_SYS_SOCKET_H 1
 | #define HAVE_SYS_TIME_H 1
@@ -1301,20 +1349,20 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:4586: result: no
-configure:4596: checking if t_uscalar_t defined
-configure:4703: gcc -c -g -O2 -D_REENTRANT  conftest.c >&5
-configure:4706: $? = 0
-configure:4709: test -s conftest.o
-configure:4712: $? = 0
-configure:4724: result: yes
-configure:4735: checking for struct sockaddr.sa_len
-configure:4762: gcc -c -g -O2 -D_REENTRANT  conftest.c >&5
+configure:4720: result: no
+configure:4730: checking if t_uscalar_t defined
+configure:4837: gcc -c -g -O2 -D_REENTRANT -D_REENTRANT  conftest.c >&5
+configure:4840: $? = 0
+configure:4843: test -s conftest.o
+configure:4846: $? = 0
+configure:4858: result: yes
+configure:4869: checking for struct sockaddr.sa_len
+configure:4896: gcc -c -g -O2 -D_REENTRANT -D_REENTRANT  conftest.c >&5
 configure: In function 'main':
-configure:4787: error: 'struct sockaddr' has no member named 'sa_len'
-configure:4765: $? = 1
+configure:4921: error: 'struct sockaddr' has no member named 'sa_len'
+configure:4899: $? = 1
 configure: failed program was:
-| #line 4740 "configure"
+| #line 4874 "configure"
 | /* confdefs.h.  */
 | 
 | #define PACKAGE_NAME ""
@@ -1324,7 +1372,7 @@ configure: failed program was:
 | #define PACKAGE_BUGREPORT ""
 | #define CPU_VENDOR_OS "i686-pc-linux-gnu"
 | #define HAVE_LIBPTHREAD 1
-| #define STDC_HEADERS 1
+| #define HAVE_LIBPTHREAD 1
 | #define HAVE_SYS_TYPES_H 1
 | #define HAVE_SYS_SOCKET_H 1
 | #define HAVE_SYS_TIME_H 1
@@ -1367,12 +1415,12 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:4800: gcc -c -g -O2 -D_REENTRANT  conftest.c >&5
+configure:4934: gcc -c -g -O2 -D_REENTRANT -D_REENTRANT  conftest.c >&5
 configure: In function 'main':
-configure:4825: error: 'struct sockaddr' has no member named 'sa_len'
-configure:4803: $? = 1
+configure:4959: error: 'struct sockaddr' has no member named 'sa_len'
+configure:4937: $? = 1
 configure: failed program was:
-| #line 4778 "configure"
+| #line 4912 "configure"
 | /* confdefs.h.  */
 | 
 | #define PACKAGE_NAME ""
@@ -1382,7 +1430,7 @@ configure: failed program was:
 | #define PACKAGE_BUGREPORT ""
 | #define CPU_VENDOR_OS "i686-pc-linux-gnu"
 | #define HAVE_LIBPTHREAD 1
-| #define STDC_HEADERS 1
+| #define HAVE_LIBPTHREAD 1
 | #define HAVE_SYS_TYPES_H 1
 | #define HAVE_SYS_SOCKET_H 1
 | #define HAVE_SYS_TIME_H 1
@@ -1425,73 +1473,73 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:4822: result: no
-configure:4848: checking for struct sockaddr_storage
-configure:4876: gcc -c -g -O2 -D_REENTRANT  conftest.c >&5
-configure:4879: $? = 0
-configure:4882: test -s conftest.o
-configure:4885: $? = 0
-configure:4896: result: yes
-configure:4904: checking for struct sockaddr_storage.ss_family
-configure:4931: gcc -c -g -O2 -D_REENTRANT  conftest.c >&5
-configure:4934: $? = 0
-configure:4937: test -s conftest.o
-configure:4940: $? = 0
-configure:4991: result: yes
-configure:5102: checking for struct msghdr.msg_control
-configure:5129: gcc -c -g -O2 -D_REENTRANT  conftest.c >&5
-configure:5132: $? = 0
-configure:5135: test -s conftest.o
-configure:5138: $? = 0
-configure:5189: result: yes
-configure:5200: checking for struct ifreq.ifr_mtu
-configure:5227: gcc -c -g -O2 -D_REENTRANT  conftest.c >&5
-configure:5230: $? = 0
-configure:5233: test -s conftest.o
-configure:5236: $? = 0
-configure:5287: result: yes
-configure:5299: checking for getaddrinfo function prototype in netdb.h
+configure:4956: result: no
+configure:4982: checking for struct sockaddr_storage
+configure:5010: gcc -c -g -O2 -D_REENTRANT -D_REENTRANT  conftest.c >&5
+configure:5013: $? = 0
+configure:5016: test -s conftest.o
+configure:5019: $? = 0
+configure:5030: result: yes
+configure:5038: checking for struct sockaddr_storage.ss_family
+configure:5065: gcc -c -g -O2 -D_REENTRANT -D_REENTRANT  conftest.c >&5
+configure:5068: $? = 0
+configure:5071: test -s conftest.o
+configure:5074: $? = 0
+configure:5125: result: yes
+configure:5236: checking for struct msghdr.msg_control
+configure:5263: gcc -c -g -O2 -D_REENTRANT -D_REENTRANT  conftest.c >&5
+configure:5266: $? = 0
+configure:5269: test -s conftest.o
+configure:5272: $? = 0
 configure:5323: result: yes
-configure:5333: checking for getnameinfo function prototype in netdb.h
-configure:5357: result: yes
-configure:5367: checking for gethostname function prototype in unistd.h
-configure:5391: result: yes
-configure:5401: checking for getrusage function prototype in sys/resource.h
-configure:5425: result: yes
-configure:5435: checking for hstrerror function prototype in netdb.h
-configure:5459: result: yes
-configure:5469: checking for if_nametoindex function prototype in net/if.h
-configure:5493: result: yes
-configure:5503: checking for inet_aton function prototype in arpa/inet.h
-configure:5527: result: yes
-configure:5537: checking for inet_pton function prototype in arpa/inet.h
-configure:5561: result: yes
-configure:5571: checking for pselect function prototype in sys/select.h
-configure:5595: result: yes
-configure:5605: checking for snprintf function prototype in stdio.h
-configure:5629: result: yes
-configure:5639: checking for sockatmark function prototype in sys/socket.h
-configure:5663: result: yes
-configure:5696: checking for struct addrinfo
-configure:5723: gcc -c -g -O2 -D_REENTRANT  conftest.c >&5
-configure:5726: $? = 0
-configure:5729: test -s conftest.o
-configure:5732: $? = 0
-configure:5743: result: yes
-configure:5754: checking for struct if_nameindex
-configure:5783: gcc -c -g -O2 -D_REENTRANT  conftest.c >&5
-configure:5786: $? = 0
-configure:5789: test -s conftest.o
-configure:5792: $? = 0
-configure:5803: result: yes
-configure:5814: checking for struct sockaddr_dl
-configure:5843: gcc -c -g -O2 -D_REENTRANT  conftest.c >&5
-configure:5877:23: error: net/if_dl.h: No such file or directory
+configure:5334: checking for struct ifreq.ifr_mtu
+configure:5361: gcc -c -g -O2 -D_REENTRANT -D_REENTRANT  conftest.c >&5
+configure:5364: $? = 0
+configure:5367: test -s conftest.o
+configure:5370: $? = 0
+configure:5421: result: yes
+configure:5433: checking for getaddrinfo function prototype in netdb.h
+configure:5457: result: yes
+configure:5467: checking for getnameinfo function prototype in netdb.h
+configure:5491: result: yes
+configure:5501: checking for gethostname function prototype in unistd.h
+configure:5525: result: yes
+configure:5535: checking for getrusage function prototype in sys/resource.h
+configure:5559: result: yes
+configure:5569: checking for hstrerror function prototype in netdb.h
+configure:5593: result: yes
+configure:5603: checking for if_nametoindex function prototype in net/if.h
+configure:5627: result: yes
+configure:5637: checking for inet_aton function prototype in arpa/inet.h
+configure:5661: result: yes
+configure:5671: checking for inet_pton function prototype in arpa/inet.h
+configure:5695: result: yes
+configure:5705: checking for pselect function prototype in sys/select.h
+configure:5729: result: yes
+configure:5739: checking for snprintf function prototype in stdio.h
+configure:5763: result: yes
+configure:5773: checking for sockatmark function prototype in sys/socket.h
+configure:5797: result: yes
+configure:5830: checking for struct addrinfo
+configure:5857: gcc -c -g -O2 -D_REENTRANT -D_REENTRANT  conftest.c >&5
+configure:5860: $? = 0
+configure:5863: test -s conftest.o
+configure:5866: $? = 0
+configure:5877: result: yes
+configure:5888: checking for struct if_nameindex
+configure:5917: gcc -c -g -O2 -D_REENTRANT -D_REENTRANT  conftest.c >&5
+configure:5920: $? = 0
+configure:5923: test -s conftest.o
+configure:5926: $? = 0
+configure:5937: result: yes
+configure:5948: checking for struct sockaddr_dl
+configure:5977: gcc -c -g -O2 -D_REENTRANT -D_REENTRANT  conftest.c >&5
+configure:6011:23: error: net/if_dl.h: No such file or directory
 configure: In function 'main':
-configure:5884: error: invalid application of 'sizeof' to incomplete type 'struct sockaddr_dl' 
-configure:5846: $? = 1
+configure:6018: error: invalid application of 'sizeof' to incomplete type 'struct sockaddr_dl' 
+configure:5980: $? = 1
 configure: failed program was:
-| #line 5819 "configure"
+| #line 5953 "configure"
 | /* confdefs.h.  */
 | 
 | #define PACKAGE_NAME ""
@@ -1501,7 +1549,7 @@ configure: failed program was:
 | #define PACKAGE_BUGREPORT ""
 | #define CPU_VENDOR_OS "i686-pc-linux-gnu"
 | #define HAVE_LIBPTHREAD 1
-| #define STDC_HEADERS 1
+| #define HAVE_LIBPTHREAD 1
 | #define HAVE_SYS_TYPES_H 1
 | #define HAVE_SYS_SOCKET_H 1
 | #define HAVE_SYS_TIME_H 1
@@ -1562,95 +1610,95 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:5863: result: no
-configure:5874: checking for struct timespec
-configure:5911: gcc -c -g -O2 -D_REENTRANT  conftest.c >&5
-configure:5914: $? = 0
-configure:5917: test -s conftest.o
-configure:5920: $? = 0
-configure:5931: result: yes
-configure:5942: checking for /dev/tcp
-configure:5953: result: no
-configure:5956: checking for /dev/xti/tcp
-configure:5967: result: no
-configure:5970: checking for /dev/streams/xtiso/tcp
-configure:5981: result: no
-configure:5991: checking for bzero
-configure:6041: gcc -o conftest -g -O2 -D_REENTRANT   conftest.c -lpthread  >&5
-configure:6068: warning: conflicting types for built-in function 'bzero'
-configure:6044: $? = 0
-configure:6047: test -s conftest
-configure:6050: $? = 0
-configure:6061: result: yes
-configure:6075: checking for getaddrinfo
-configure:6125: gcc -o conftest -g -O2 -D_REENTRANT   conftest.c -lpthread  >&5
-configure:6128: $? = 0
-configure:6131: test -s conftest
-configure:6134: $? = 0
-configure:6145: result: yes
-configure:6159: checking for gethostname
-configure:6209: gcc -o conftest -g -O2 -D_REENTRANT   conftest.c -lpthread  >&5
-configure:6212: $? = 0
-configure:6215: test -s conftest
-configure:6218: $? = 0
-configure:6229: result: yes
-configure:6243: checking for gethostbyname2
-configure:6293: gcc -o conftest -g -O2 -D_REENTRANT   conftest.c -lpthread  >&5
-configure:6296: $? = 0
-configure:6299: test -s conftest
-configure:6302: $? = 0
-configure:6313: result: yes
-configure:6327: checking for gethostbyname_r
-configure:6377: gcc -o conftest -g -O2 -D_REENTRANT   conftest.c -lpthread  >&5
-configure:6380: $? = 0
-configure:6383: test -s conftest
-configure:6386: $? = 0
-configure:6397: result: yes
-configure:6411: checking for getnameinfo
-configure:6461: gcc -o conftest -g -O2 -D_REENTRANT   conftest.c -lpthread  >&5
-configure:6464: $? = 0
-configure:6467: test -s conftest
-configure:6470: $? = 0
-configure:6481: result: yes
-configure:6495: checking for hstrerror
-configure:6545: gcc -o conftest -g -O2 -D_REENTRANT   conftest.c -lpthread  >&5
-configure:6548: $? = 0
-configure:6551: test -s conftest
-configure:6554: $? = 0
-configure:6565: result: yes
-configure:6579: checking for if_nametoindex
-configure:6629: gcc -o conftest -g -O2 -D_REENTRANT   conftest.c -lpthread  >&5
-configure:6632: $? = 0
-configure:6635: test -s conftest
-configure:6638: $? = 0
-configure:6649: result: yes
-configure:6663: checking for inet_aton
-configure:6713: gcc -o conftest -g -O2 -D_REENTRANT   conftest.c -lpthread  >&5
-configure:6716: $? = 0
-configure:6719: test -s conftest
-configure:6722: $? = 0
-configure:6733: result: yes
-configure:6747: checking for inet_pton
-configure:6797: gcc -o conftest -g -O2 -D_REENTRANT   conftest.c -lpthread  >&5
-configure:6800: $? = 0
-configure:6803: test -s conftest
-configure:6806: $? = 0
-configure:6817: result: yes
-configure:6831: checking for inet6_rth_init
-configure:6881: gcc -o conftest -g -O2 -D_REENTRANT   conftest.c -lpthread  >&5
-configure:6884: $? = 0
-configure:6887: test -s conftest
-configure:6890: $? = 0
-configure:6901: result: yes
-configure:6916: checking for kqueue
-configure:6966: gcc -o conftest -g -O2 -D_REENTRANT   conftest.c -lpthread  >&5
-/tmp/cca4kaTm.o: In function `main':
-/mnt/hgfs/centos_share/Me/Server/configure:7019: undefined reference to `kqueue'
-/tmp/cca4kaTm.o:(.data+0x0): undefined reference to `kqueue'
+configure:5997: result: no
+configure:6008: checking for struct timespec
+configure:6045: gcc -c -g -O2 -D_REENTRANT -D_REENTRANT  conftest.c >&5
+configure:6048: $? = 0
+configure:6051: test -s conftest.o
+configure:6054: $? = 0
+configure:6065: result: yes
+configure:6076: checking for /dev/tcp
+configure:6087: result: no
+configure:6090: checking for /dev/xti/tcp
+configure:6101: result: no
+configure:6104: checking for /dev/streams/xtiso/tcp
+configure:6115: result: no
+configure:6125: checking for bzero
+configure:6175: gcc -o conftest -g -O2 -D_REENTRANT -D_REENTRANT   conftest.c -lpthread -levent  >&5
+configure:6202: warning: conflicting types for built-in function 'bzero'
+configure:6178: $? = 0
+configure:6181: test -s conftest
+configure:6184: $? = 0
+configure:6195: result: yes
+configure:6209: checking for getaddrinfo
+configure:6259: gcc -o conftest -g -O2 -D_REENTRANT -D_REENTRANT   conftest.c -lpthread -levent  >&5
+configure:6262: $? = 0
+configure:6265: test -s conftest
+configure:6268: $? = 0
+configure:6279: result: yes
+configure:6293: checking for gethostname
+configure:6343: gcc -o conftest -g -O2 -D_REENTRANT -D_REENTRANT   conftest.c -lpthread -levent  >&5
+configure:6346: $? = 0
+configure:6349: test -s conftest
+configure:6352: $? = 0
+configure:6363: result: yes
+configure:6377: checking for gethostbyname2
+configure:6427: gcc -o conftest -g -O2 -D_REENTRANT -D_REENTRANT   conftest.c -lpthread -levent  >&5
+configure:6430: $? = 0
+configure:6433: test -s conftest
+configure:6436: $? = 0
+configure:6447: result: yes
+configure:6461: checking for gethostbyname_r
+configure:6511: gcc -o conftest -g -O2 -D_REENTRANT -D_REENTRANT   conftest.c -lpthread -levent  >&5
+configure:6514: $? = 0
+configure:6517: test -s conftest
+configure:6520: $? = 0
+configure:6531: result: yes
+configure:6545: checking for getnameinfo
+configure:6595: gcc -o conftest -g -O2 -D_REENTRANT -D_REENTRANT   conftest.c -lpthread -levent  >&5
+configure:6598: $? = 0
+configure:6601: test -s conftest
+configure:6604: $? = 0
+configure:6615: result: yes
+configure:6629: checking for hstrerror
+configure:6679: gcc -o conftest -g -O2 -D_REENTRANT -D_REENTRANT   conftest.c -lpthread -levent  >&5
+configure:6682: $? = 0
+configure:6685: test -s conftest
+configure:6688: $? = 0
+configure:6699: result: yes
+configure:6713: checking for if_nametoindex
+configure:6763: gcc -o conftest -g -O2 -D_REENTRANT -D_REENTRANT   conftest.c -lpthread -levent  >&5
+configure:6766: $? = 0
+configure:6769: test -s conftest
+configure:6772: $? = 0
+configure:6783: result: yes
+configure:6797: checking for inet_aton
+configure:6847: gcc -o conftest -g -O2 -D_REENTRANT -D_REENTRANT   conftest.c -lpthread -levent  >&5
+configure:6850: $? = 0
+configure:6853: test -s conftest
+configure:6856: $? = 0
+configure:6867: result: yes
+configure:6881: checking for inet_pton
+configure:6931: gcc -o conftest -g -O2 -D_REENTRANT -D_REENTRANT   conftest.c -lpthread -levent  >&5
+configure:6934: $? = 0
+configure:6937: test -s conftest
+configure:6940: $? = 0
+configure:6951: result: yes
+configure:6965: checking for inet6_rth_init
+configure:7015: gcc -o conftest -g -O2 -D_REENTRANT -D_REENTRANT   conftest.c -lpthread -levent  >&5
+configure:7018: $? = 0
+configure:7021: test -s conftest
+configure:7024: $? = 0
+configure:7035: result: yes
+configure:7050: checking for kqueue
+configure:7100: gcc -o conftest -g -O2 -D_REENTRANT -D_REENTRANT   conftest.c -lpthread -levent  >&5
+/tmp/ccyAEZBd.o: In function `main':
+/mnt/hgfs/centos_share/Me/Server/configure:7153: undefined reference to `kqueue'
+/tmp/ccyAEZBd.o:(.data+0x0): undefined reference to `kqueue'
 collect2: ld returned 1 exit status
-configure:6969: $? = 1
+configure:7103: $? = 1
 configure: failed program was:
-| #line 6921 "configure"
+| #line 7055 "configure"
 | /* confdefs.h.  */
 | 
 | #define PACKAGE_NAME ""
@@ -1660,7 +1708,7 @@ configure: failed program was:
 | #define PACKAGE_BUGREPORT ""
 | #define CPU_VENDOR_OS "i686-pc-linux-gnu"
 | #define HAVE_LIBPTHREAD 1
-| #define STDC_HEADERS 1
+| #define HAVE_LIBPTHREAD 1
 | #define HAVE_SYS_TYPES_H 1
 | #define HAVE_SYS_SOCKET_H 1
 | #define HAVE_SYS_TIME_H 1
@@ -1754,16 +1802,16 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:6986: result: no
-configure:6916: checking for kevent
-configure:6966: gcc -o conftest -g -O2 -D_REENTRANT   conftest.c -lpthread  >&5
-/tmp/ccecoNQE.o: In function `main':
-/mnt/hgfs/centos_share/Me/Server/configure:7019: undefined reference to `kevent'
-/tmp/ccecoNQE.o:(.data+0x0): undefined reference to `kevent'
+configure:7120: result: no
+configure:7050: checking for kevent
+configure:7100: gcc -o conftest -g -O2 -D_REENTRANT -D_REENTRANT   conftest.c -lpthread -levent  >&5
+/tmp/cc6O7Pnb.o: In function `main':
+/mnt/hgfs/centos_share/Me/Server/configure:7153: undefined reference to `kevent'
+/tmp/cc6O7Pnb.o:(.data+0x0): undefined reference to `kevent'
 collect2: ld returned 1 exit status
-configure:6969: $? = 1
+configure:7103: $? = 1
 configure: failed program was:
-| #line 6921 "configure"
+| #line 7055 "configure"
 | /* confdefs.h.  */
 | 
 | #define PACKAGE_NAME ""
@@ -1773,7 +1821,7 @@ configure: failed program was:
 | #define PACKAGE_BUGREPORT ""
 | #define CPU_VENDOR_OS "i686-pc-linux-gnu"
 | #define HAVE_LIBPTHREAD 1
-| #define STDC_HEADERS 1
+| #define HAVE_LIBPTHREAD 1
 | #define HAVE_SYS_TYPES_H 1
 | #define HAVE_SYS_SOCKET_H 1
 | #define HAVE_SYS_TIME_H 1
@@ -1867,80 +1915,447 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:6986: result: no
-configure:7000: checking for mkstemp
-configure:7050: gcc -o conftest -g -O2 -D_REENTRANT   conftest.c -lpthread  >&5
-configure:7053: $? = 0
-configure:7056: test -s conftest
-configure:7059: $? = 0
-configure:7070: result: yes
-configure:7084: checking for poll
-configure:7134: gcc -o conftest -g -O2 -D_REENTRANT   conftest.c -lpthread  >&5
-configure:7137: $? = 0
-configure:7140: test -s conftest
-configure:7143: $? = 0
-configure:7154: result: yes
-configure:7168: checking for pselect
-configure:7218: gcc -o conftest -g -O2 -D_REENTRANT   conftest.c -lpthread  >&5
-configure:7221: $? = 0
-configure:7224: test -s conftest
-configure:7227: $? = 0
-configure:7238: result: yes
-configure:7252: checking for snprintf
-configure:7302: gcc -o conftest -g -O2 -D_REENTRANT   conftest.c -lpthread  >&5
-configure:7343: warning: conflicting types for built-in function 'snprintf'
-configure:7305: $? = 0
-configure:7308: test -s conftest
-configure:7311: $? = 0
-configure:7322: result: yes
-configure:7336: checking for sockatmark
-configure:7386: gcc -o conftest -g -O2 -D_REENTRANT   conftest.c -lpthread  >&5
-configure:7389: $? = 0
-configure:7392: test -s conftest
-configure:7395: $? = 0
-configure:7406: result: yes
-configure:7420: checking for vsnprintf
-configure:7470: gcc -o conftest -g -O2 -D_REENTRANT   conftest.c -lpthread  >&5
-configure:7513: warning: conflicting types for built-in function 'vsnprintf'
-configure:7473: $? = 0
-configure:7476: test -s conftest
-configure:7479: $? = 0
-configure:7490: result: yes
-configure:7502: checking for IPv4 support
-configure:7533: gcc -o conftest -g -O2 -D_REENTRANT   conftest.c -lpthread  >&5
+configure:7120: result: no
+configure:7134: checking for mkstemp
+configure:7184: gcc -o conftest -g -O2 -D_REENTRANT -D_REENTRANT   conftest.c -lpthread -levent  >&5
+configure:7187: $? = 0
+configure:7190: test -s conftest
+configure:7193: $? = 0
+configure:7204: result: yes
+configure:7218: checking for poll
+configure:7268: gcc -o conftest -g -O2 -D_REENTRANT -D_REENTRANT   conftest.c -lpthread -levent  >&5
+configure:7271: $? = 0
+configure:7274: test -s conftest
+configure:7277: $? = 0
+configure:7288: result: yes
+configure:7302: checking for pselect
+configure:7352: gcc -o conftest -g -O2 -D_REENTRANT -D_REENTRANT   conftest.c -lpthread -levent  >&5
+configure:7355: $? = 0
+configure:7358: test -s conftest
+configure:7361: $? = 0
+configure:7372: result: yes
+configure:7386: checking for snprintf
+configure:7436: gcc -o conftest -g -O2 -D_REENTRANT -D_REENTRANT   conftest.c -lpthread -levent  >&5
+configure:7477: warning: conflicting types for built-in function 'snprintf'
+configure:7439: $? = 0
+configure:7442: test -s conftest
+configure:7445: $? = 0
+configure:7456: result: yes
+configure:7470: checking for sockatmark
+configure:7520: gcc -o conftest -g -O2 -D_REENTRANT -D_REENTRANT   conftest.c -lpthread -levent  >&5
+configure:7523: $? = 0
+configure:7526: test -s conftest
+configure:7529: $? = 0
+configure:7540: result: yes
+configure:7554: checking for vsnprintf
+configure:7604: gcc -o conftest -g -O2 -D_REENTRANT -D_REENTRANT   conftest.c -lpthread -levent  >&5
+configure:7647: warning: conflicting types for built-in function 'vsnprintf'
+configure:7607: $? = 0
+configure:7610: test -s conftest
+configure:7613: $? = 0
+configure:7624: result: yes
+configure:7636: checking for IPv4 support
+configure:7667: gcc -o conftest -g -O2 -D_REENTRANT -D_REENTRANT   conftest.c -lpthread -levent  >&5
 configure: In function 'main':
-configure:7595: warning: incompatible implicit declaration of built-in function 'exit'
-configure:7536: $? = 0
-configure:7538: ./conftest
-configure:7541: $? = 0
-configure:7556: result: yes
-configure:7571: checking for IPv6 support
-configure:7602: gcc -o conftest -g -O2 -D_REENTRANT   conftest.c -lpthread  >&5
+configure:7729: warning: incompatible implicit declaration of built-in function 'exit'
+configure:7670: $? = 0
+configure:7672: ./conftest
+./conftest: error while loading shared libraries: libevent-2.0.so.5: cannot open shared object file: Error 40
+configure:7675: $? = 127
+configure: program exited with status 127
+configure: failed program was:
+| #line 7644 "configure"
+| /* confdefs.h.  */
+| 
+| #define PACKAGE_NAME ""
+| #define PACKAGE_TARNAME ""
+| #define PACKAGE_VERSION ""
+| #define PACKAGE_STRING ""
+| #define PACKAGE_BUGREPORT ""
+| #define CPU_VENDOR_OS "i686-pc-linux-gnu"
+| #define HAVE_LIBPTHREAD 1
+| #define HAVE_LIBPTHREAD 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| #define HAVE_SYS_TIME_H 1
+| #define HAVE_TIME_H 1
+| #define HAVE_NETINET_IN_H 1
+| #define HAVE_ARPA_INET_H 1
+| #define HAVE_ERRNO_H 1
+| #define HAVE_FCNTL_H 1
+| #define HAVE_NETDB_H 1
+| #define HAVE_SIGNAL_H 1
+| #define HAVE_STDIO_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_SYS_UIO_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_SYS_WAIT_H 1
+| #define HAVE_SYS_UN_H 1
+| #define HAVE_SYS_PARAM_H 1
+| #define HAVE_SYS_SELECT_H 1
+| #define HAVE_SYS_SYSCTL_H 1
+| #define HAVE_POLL_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_SYS_IOCTL_H 1
+| #define HAVE_PTHREAD_H 1
+| #define HAVE_STROPTS_H 1
+| #define TIME_WITH_SYS_TIME 1
+| #define t_scalar_t int32_t
+| #define HAVE_STRUCT_SOCKADDR_STORAGE 1
+| #define HAVE_MSGHDR_MSG_CONTROL 1
+| #define HAVE_STRUCT_IFREQ_IFR_MTU 1
+| #define HAVE_GETADDRINFO_PROTO 1
+| #define HAVE_GETNAMEINFO_PROTO 1
+| #define HAVE_GETHOSTNAME_PROTO 1
+| #define HAVE_GETRUSAGE_PROTO 1
+| #define HAVE_HSTRERROR_PROTO 1
+| #define HAVE_IF_NAMETOINDEX_PROTO 1
+| #define HAVE_INET_ATON_PROTO 1
+| #define HAVE_INET_PTON_PROTO 1
+| #define HAVE_PSELECT_PROTO 1
+| #define HAVE_SNPRINTF_PROTO 1
+| #define HAVE_SOCKATMARK_PROTO 1
+| #define HAVE_ADDRINFO_STRUCT 1
+| #define HAVE_IF_NAMEINDEX_STRUCT 1
+| #define HAVE_TIMESPEC_STRUCT 1
+| #define HAVE_BZERO 1
+| #define HAVE_GETADDRINFO 1
+| #define HAVE_GETHOSTNAME 1
+| #define HAVE_GETHOSTBYNAME2 1
+| #define HAVE_GETHOSTBYNAME_R 1
+| #define HAVE_GETNAMEINFO 1
+| #define HAVE_HSTRERROR 1
+| #define HAVE_IF_NAMETOINDEX 1
+| #define HAVE_INET_ATON 1
+| #define HAVE_INET_PTON 1
+| #define HAVE_INET6_RTH_INIT 1
+| #define HAVE_MKSTEMP 1
+| #define HAVE_POLL 1
+| #define HAVE_PSELECT 1
+| #define HAVE_SNPRINTF 1
+| #define HAVE_SOCKATMARK 1
+| #define HAVE_VSNPRINTF 1
+| /* end confdefs.h.  */
+| 
+| #	include <sys/types.h>
+| #	include <sys/socket.h>
+| #	include <netinet/in.h>
+| 	/* Make sure the definitions for AF_INET and struct sockaddr_in
+| 	 * are defined, and that we can actually create an IPv4 TCP socket.
+| 	 */
+| 	main()
+| 	{
+| 		int fd;
+| 		struct sockaddr_in foo;
+| 		fd = socket(AF_INET, SOCK_STREAM, 0);
+| 		exit(fd >= 0 ? 0 : 1);
+| 	}
+configure:7690: result: no
+configure:7705: checking for IPv6 support
+configure:7736: gcc -o conftest -g -O2 -D_REENTRANT -D_REENTRANT   conftest.c -lpthread -levent  >&5
 configure: In function 'main':
-configure:7666: warning: incompatible implicit declaration of built-in function 'exit'
-configure:7605: $? = 0
-configure:7607: ./conftest
-configure:7610: $? = 0
-configure:7625: result: yes
-configure:7640: checking for Unix domain sockets
-configure:7671: gcc -o conftest -g -O2 -D_REENTRANT   conftest.c -lpthread  >&5
+configure:7798: warning: incompatible implicit declaration of built-in function 'exit'
+configure:7739: $? = 0
+configure:7741: ./conftest
+./conftest: error while loading shared libraries: libevent-2.0.so.5: cannot open shared object file: Error 40
+configure:7744: $? = 127
+configure: program exited with status 127
+configure: failed program was:
+| #line 7713 "configure"
+| /* confdefs.h.  */
+| 
+| #define PACKAGE_NAME ""
+| #define PACKAGE_TARNAME ""
+| #define PACKAGE_VERSION ""
+| #define PACKAGE_STRING ""
+| #define PACKAGE_BUGREPORT ""
+| #define CPU_VENDOR_OS "i686-pc-linux-gnu"
+| #define HAVE_LIBPTHREAD 1
+| #define HAVE_LIBPTHREAD 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| #define HAVE_SYS_TIME_H 1
+| #define HAVE_TIME_H 1
+| #define HAVE_NETINET_IN_H 1
+| #define HAVE_ARPA_INET_H 1
+| #define HAVE_ERRNO_H 1
+| #define HAVE_FCNTL_H 1
+| #define HAVE_NETDB_H 1
+| #define HAVE_SIGNAL_H 1
+| #define HAVE_STDIO_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_SYS_UIO_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_SYS_WAIT_H 1
+| #define HAVE_SYS_UN_H 1
+| #define HAVE_SYS_PARAM_H 1
+| #define HAVE_SYS_SELECT_H 1
+| #define HAVE_SYS_SYSCTL_H 1
+| #define HAVE_POLL_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_SYS_IOCTL_H 1
+| #define HAVE_PTHREAD_H 1
+| #define HAVE_STROPTS_H 1
+| #define TIME_WITH_SYS_TIME 1
+| #define t_scalar_t int32_t
+| #define HAVE_STRUCT_SOCKADDR_STORAGE 1
+| #define HAVE_MSGHDR_MSG_CONTROL 1
+| #define HAVE_STRUCT_IFREQ_IFR_MTU 1
+| #define HAVE_GETADDRINFO_PROTO 1
+| #define HAVE_GETNAMEINFO_PROTO 1
+| #define HAVE_GETHOSTNAME_PROTO 1
+| #define HAVE_GETRUSAGE_PROTO 1
+| #define HAVE_HSTRERROR_PROTO 1
+| #define HAVE_IF_NAMETOINDEX_PROTO 1
+| #define HAVE_INET_ATON_PROTO 1
+| #define HAVE_INET_PTON_PROTO 1
+| #define HAVE_PSELECT_PROTO 1
+| #define HAVE_SNPRINTF_PROTO 1
+| #define HAVE_SOCKATMARK_PROTO 1
+| #define HAVE_ADDRINFO_STRUCT 1
+| #define HAVE_IF_NAMEINDEX_STRUCT 1
+| #define HAVE_TIMESPEC_STRUCT 1
+| #define HAVE_BZERO 1
+| #define HAVE_GETADDRINFO 1
+| #define HAVE_GETHOSTNAME 1
+| #define HAVE_GETHOSTBYNAME2 1
+| #define HAVE_GETHOSTBYNAME_R 1
+| #define HAVE_GETNAMEINFO 1
+| #define HAVE_HSTRERROR 1
+| #define HAVE_IF_NAMETOINDEX 1
+| #define HAVE_INET_ATON 1
+| #define HAVE_INET_PTON 1
+| #define HAVE_INET6_RTH_INIT 1
+| #define HAVE_MKSTEMP 1
+| #define HAVE_POLL 1
+| #define HAVE_PSELECT 1
+| #define HAVE_SNPRINTF 1
+| #define HAVE_SOCKATMARK 1
+| #define HAVE_VSNPRINTF 1
+| /* end confdefs.h.  */
+| 
+| #	include <sys/types.h>
+| #	include <sys/socket.h>
+| #	include <netinet/in.h>
+| 	/* Make sure the definitions for AF_INET6 and struct sockaddr_in6
+| 	 * are defined, and that we can actually create an IPv6 TCP socket.
+| 	 */
+| 	main()
+| 	{
+| 		int fd;
+| 		struct sockaddr_in6 foo;
+| 		fd = socket(AF_INET6, SOCK_STREAM, 0);
+| 		exit(fd >= 0 ? 0 : 1);
+| 	}
+configure:7759: result: no
+configure:7774: checking for Unix domain sockets
+configure:7805: gcc -o conftest -g -O2 -D_REENTRANT -D_REENTRANT   conftest.c -lpthread -levent  >&5
 configure: In function 'main':
-configure:7737: warning: incompatible implicit declaration of built-in function 'exit'
-configure:7674: $? = 0
-configure:7676: ./conftest
-configure:7679: $? = 0
-configure:7694: result: yes
-configure:7709: checking for multicast support
-configure:7743: gcc -o conftest -g -O2 -D_REENTRANT   conftest.c -lpthread  >&5
+configure:7867: warning: incompatible implicit declaration of built-in function 'exit'
+configure:7808: $? = 0
+configure:7810: ./conftest
+./conftest: error while loading shared libraries: libevent-2.0.so.5: cannot open shared object file: Error 40
+configure:7813: $? = 127
+configure: program exited with status 127
+configure: failed program was:
+| #line 7782 "configure"
+| /* confdefs.h.  */
+| 
+| #define PACKAGE_NAME ""
+| #define PACKAGE_TARNAME ""
+| #define PACKAGE_VERSION ""
+| #define PACKAGE_STRING ""
+| #define PACKAGE_BUGREPORT ""
+| #define CPU_VENDOR_OS "i686-pc-linux-gnu"
+| #define HAVE_LIBPTHREAD 1
+| #define HAVE_LIBPTHREAD 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| #define HAVE_SYS_TIME_H 1
+| #define HAVE_TIME_H 1
+| #define HAVE_NETINET_IN_H 1
+| #define HAVE_ARPA_INET_H 1
+| #define HAVE_ERRNO_H 1
+| #define HAVE_FCNTL_H 1
+| #define HAVE_NETDB_H 1
+| #define HAVE_SIGNAL_H 1
+| #define HAVE_STDIO_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_SYS_UIO_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_SYS_WAIT_H 1
+| #define HAVE_SYS_UN_H 1
+| #define HAVE_SYS_PARAM_H 1
+| #define HAVE_SYS_SELECT_H 1
+| #define HAVE_SYS_SYSCTL_H 1
+| #define HAVE_POLL_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_SYS_IOCTL_H 1
+| #define HAVE_PTHREAD_H 1
+| #define HAVE_STROPTS_H 1
+| #define TIME_WITH_SYS_TIME 1
+| #define t_scalar_t int32_t
+| #define HAVE_STRUCT_SOCKADDR_STORAGE 1
+| #define HAVE_MSGHDR_MSG_CONTROL 1
+| #define HAVE_STRUCT_IFREQ_IFR_MTU 1
+| #define HAVE_GETADDRINFO_PROTO 1
+| #define HAVE_GETNAMEINFO_PROTO 1
+| #define HAVE_GETHOSTNAME_PROTO 1
+| #define HAVE_GETRUSAGE_PROTO 1
+| #define HAVE_HSTRERROR_PROTO 1
+| #define HAVE_IF_NAMETOINDEX_PROTO 1
+| #define HAVE_INET_ATON_PROTO 1
+| #define HAVE_INET_PTON_PROTO 1
+| #define HAVE_PSELECT_PROTO 1
+| #define HAVE_SNPRINTF_PROTO 1
+| #define HAVE_SOCKATMARK_PROTO 1
+| #define HAVE_ADDRINFO_STRUCT 1
+| #define HAVE_IF_NAMEINDEX_STRUCT 1
+| #define HAVE_TIMESPEC_STRUCT 1
+| #define HAVE_BZERO 1
+| #define HAVE_GETADDRINFO 1
+| #define HAVE_GETHOSTNAME 1
+| #define HAVE_GETHOSTBYNAME2 1
+| #define HAVE_GETHOSTBYNAME_R 1
+| #define HAVE_GETNAMEINFO 1
+| #define HAVE_HSTRERROR 1
+| #define HAVE_IF_NAMETOINDEX 1
+| #define HAVE_INET_ATON 1
+| #define HAVE_INET_PTON 1
+| #define HAVE_INET6_RTH_INIT 1
+| #define HAVE_MKSTEMP 1
+| #define HAVE_POLL 1
+| #define HAVE_PSELECT 1
+| #define HAVE_SNPRINTF 1
+| #define HAVE_SOCKATMARK 1
+| #define HAVE_VSNPRINTF 1
+| /* end confdefs.h.  */
+| 
+| #	include <sys/types.h>
+| #	include <sys/socket.h>
+| #	include <sys/un.h>
+| 	/* Make sure the definitions for AF_UNIX and struct sockaddr_un
+| 	 * are defined, and that we can actually create an IPv4 TCP socket.
+| 	 */
+| 	main()
+| 	{
+| 		int fd;
+| 		struct sockaddr_un foo;
+| 		fd = socket(AF_UNIX, SOCK_STREAM, 0);
+| 		exit(fd >= 0 ? 0 : 1);
+| 	}
+configure:7828: result: no
+configure:7843: checking for multicast support
+configure:7877: gcc -o conftest -g -O2 -D_REENTRANT -D_REENTRANT   conftest.c -lpthread -levent  >&5
 configure: In function 'main':
-configure:7807: warning: incompatible implicit declaration of built-in function 'exit'
-configure:7746: $? = 0
-configure:7748: ./conftest
-configure:7751: $? = 0
-configure:7766: result: yes
-configure:7902: checking for -I/root/doc/unp2ev1/src/include
-configure:7909: result: no
-configure:8023: creating ./config.status
+configure:7935: warning: incompatible implicit declaration of built-in function 'exit'
+configure:7880: $? = 0
+configure:7882: ./conftest
+./conftest: error while loading shared libraries: libevent-2.0.so.5: cannot open shared object file: Error 40
+configure:7885: $? = 127
+configure: program exited with status 127
+configure: failed program was:
+| #line 7851 "configure"
+| /* confdefs.h.  */
+| 
+| #define PACKAGE_NAME ""
+| #define PACKAGE_TARNAME ""
+| #define PACKAGE_VERSION ""
+| #define PACKAGE_STRING ""
+| #define PACKAGE_BUGREPORT ""
+| #define CPU_VENDOR_OS "i686-pc-linux-gnu"
+| #define HAVE_LIBPTHREAD 1
+| #define HAVE_LIBPTHREAD 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| #define HAVE_SYS_TIME_H 1
+| #define HAVE_TIME_H 1
+| #define HAVE_NETINET_IN_H 1
+| #define HAVE_ARPA_INET_H 1
+| #define HAVE_ERRNO_H 1
+| #define HAVE_FCNTL_H 1
+| #define HAVE_NETDB_H 1
+| #define HAVE_SIGNAL_H 1
+| #define HAVE_STDIO_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_SYS_UIO_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_SYS_WAIT_H 1
+| #define HAVE_SYS_UN_H 1
+| #define HAVE_SYS_PARAM_H 1
+| #define HAVE_SYS_SELECT_H 1
+| #define HAVE_SYS_SYSCTL_H 1
+| #define HAVE_POLL_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_SYS_IOCTL_H 1
+| #define HAVE_PTHREAD_H 1
+| #define HAVE_STROPTS_H 1
+| #define TIME_WITH_SYS_TIME 1
+| #define t_scalar_t int32_t
+| #define HAVE_STRUCT_SOCKADDR_STORAGE 1
+| #define HAVE_MSGHDR_MSG_CONTROL 1
+| #define HAVE_STRUCT_IFREQ_IFR_MTU 1
+| #define HAVE_GETADDRINFO_PROTO 1
+| #define HAVE_GETNAMEINFO_PROTO 1
+| #define HAVE_GETHOSTNAME_PROTO 1
+| #define HAVE_GETRUSAGE_PROTO 1
+| #define HAVE_HSTRERROR_PROTO 1
+| #define HAVE_IF_NAMETOINDEX_PROTO 1
+| #define HAVE_INET_ATON_PROTO 1
+| #define HAVE_INET_PTON_PROTO 1
+| #define HAVE_PSELECT_PROTO 1
+| #define HAVE_SNPRINTF_PROTO 1
+| #define HAVE_SOCKATMARK_PROTO 1
+| #define HAVE_ADDRINFO_STRUCT 1
+| #define HAVE_IF_NAMEINDEX_STRUCT 1
+| #define HAVE_TIMESPEC_STRUCT 1
+| #define HAVE_BZERO 1
+| #define HAVE_GETADDRINFO 1
+| #define HAVE_GETHOSTNAME 1
+| #define HAVE_GETHOSTBYNAME2 1
+| #define HAVE_GETHOSTBYNAME_R 1
+| #define HAVE_GETNAMEINFO 1
+| #define HAVE_HSTRERROR 1
+| #define HAVE_IF_NAMETOINDEX 1
+| #define HAVE_INET_ATON 1
+| #define HAVE_INET_PTON 1
+| #define HAVE_INET6_RTH_INIT 1
+| #define HAVE_MKSTEMP 1
+| #define HAVE_POLL 1
+| #define HAVE_PSELECT 1
+| #define HAVE_SNPRINTF 1
+| #define HAVE_SOCKATMARK 1
+| #define HAVE_VSNPRINTF 1
+| /* end confdefs.h.  */
+| 
+| #	include <sys/types.h>
+| #	include <sys/socket.h>
+| #	include <netinet/in.h>
+| 	main()
+| 	{
+| 		int fd;
+| 		unsigned char flag = 1;
+| 		struct sockaddr_in foo;
+| 		struct ip_mreq mreq;
+| 		fd = socket(AF_INET, SOCK_DGRAM, 0);
+| 		if (fd < 0) exit(1);
+| 		if (setsockopt(fd, IPPROTO_IP, IP_MULTICAST_LOOP,
+| 			       (void*)&flag, sizeof(flag)) < 0)
+| 			exit(1);
+| 		exit(0);
+| 	}
+configure:7900: result: no
+configure:8037: checking for -I/root/doc/unp2ev1/src/include
+configure:8044: result: no
+configure:8158: creating ./config.status
 
 ## ---------------------- ##
 ## Running config.status. ##
@@ -1960,7 +2375,6 @@ on localhost.localdomain
 config.status:628: creating Makefile
 config.status:628: creating Make.defines
 config.status:731: creating config.h
-config.status:992: config.h is unchanged
 
 ## ---------------- ##
 ## Cache variables. ##
@@ -2027,7 +2441,7 @@ ac_cv_header_netinet_in_h=yes
 ac_cv_header_poll_h=yes
 ac_cv_header_pthread_h=yes
 ac_cv_header_signal_h=yes
-ac_cv_header_stdc=yes
+ac_cv_header_stdc=no
 ac_cv_header_stdio_h=yes
 ac_cv_header_stdlib_h=yes
 ac_cv_header_string_h=yes
@@ -2054,8 +2468,9 @@ ac_cv_header_xti_h=no
 ac_cv_header_xti_inet_h=no
 ac_cv_host=i686-pc-linux-gnu
 ac_cv_host_alias=i686-pc-linux-gnu
-ac_cv_ipv4=yes
-ac_cv_ipv6=yes
+ac_cv_ipv4=no
+ac_cv_ipv6=no
+ac_cv_lib_event_event_create=yes
 ac_cv_lib_nsl_t_open=no
 ac_cv_lib_pthread_pthread_create=yes
 ac_cv_lib_resolv_res_init=no
@@ -2064,7 +2479,7 @@ ac_cv_member_struct_ifreq_ifr_mtu=yes
 ac_cv_member_struct_msghdr_msg_control=yes
 ac_cv_member_struct_sockaddr_sa_len=no
 ac_cv_member_struct_sockaddr_storage_ss_family=yes
-ac_cv_multicast=yes
+ac_cv_multicast=no
 ac_cv_objext=o
 ac_cv_prog_CPP='gcc -E'
 ac_cv_prog_ac_ct_CC=gcc
@@ -2089,14 +2504,14 @@ ac_cv_type_t_uscalar_t=yes
 ac_cv_type_uint16_t=yes
 ac_cv_type_uint32_t=yes
 ac_cv_type_uint8_t=yes
-ac_cv_unixdomain=yes
+ac_cv_unixdomain=no
 
 ## ----------------- ##
 ## Output variables. ##
 ## ----------------- ##
 
 CC='gcc'
-CFLAGS='-g -O2 -D_REENTRANT -Wall'
+CFLAGS='-g -O2 -D_REENTRANT -D_REENTRANT -Wall'
 CPP='gcc -E'
 CPPFLAGS=''
 DEFS='-DHAVE_CONFIG_H'
@@ -2110,14 +2525,14 @@ LIBFREE_OBJS=''
 LIBGAI_OBJS=''
 LIBOBJS=''
 LIBROUTE_OBJS=''
-LIBS='-lpthread'
-LIBS_XTI='-lpthread'
-LIBUNP=''
+LIBS='-lpthread -levent'
+LIBS_XTI='-lpthread -levent'
+LIBUNP='../../Common/libgame.a'
 LIBUNPXTI=''
 LIBUNPXTI_NAME=''
-LIBUNP_NAME=''
+LIBUNP_NAME='../../Common/libgame.a'
 LIBXTI_OBJS=''
-LIB_OBJS=' error.o readn.o writen.o'
+LIB_OBJS=' server_socket.o socket.o socket_api.o'
 LTLIBOBJS=''
 OBJEXT='o'
 PACKAGE_BUGREPORT=''
@@ -2187,6 +2602,7 @@ target_alias=''
 #define HAVE_INET_PTON 1
 #define HAVE_INET_PTON_PROTO 1
 #define HAVE_LIBPTHREAD 1
+#define HAVE_LIBPTHREAD 1
 #define HAVE_MKSTEMP 1
 #define HAVE_MSGHDR_MSG_CONTROL 1
 #define HAVE_NETDB_H 1
@@ -2223,20 +2639,12 @@ target_alias=''
 #define HAVE_TIME_H 1
 #define HAVE_UNISTD_H 1
 #define HAVE_VSNPRINTF 1
-#define IPV4 1
-#define IPV6 1
-#define IPv4 1
-#define IPv6 1
-#define MCAST 1
 #define PACKAGE_BUGREPORT ""
 #define PACKAGE_NAME ""
 #define PACKAGE_STRING ""
 #define PACKAGE_TARNAME ""
 #define PACKAGE_VERSION ""
-#define STDC_HEADERS 1
 #define TIME_WITH_SYS_TIME 1
-#define UNIXDOMAIN 1
-#define UNIXdomain 1
 #define t_scalar_t int32_t
 
 configure: exit 0

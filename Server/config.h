@@ -245,19 +245,19 @@
 /* #undef HAVE_XTI_INET_H */
 
 /* Define to 1 if the system supports IPv4 */
-#define IPV4 1
+/* #undef IPV4 */
 
 /* Define to 1 if the system supports IPv6 */
-#define IPV6 1
+/* #undef IPV6 */
 
 /* Define to 1 if the system supports IPv4 */
-#define IPv4 1
+/* #undef IPv4 */
 
 /* Define to 1 if the system supports IPv6 */
-#define IPv6 1
+/* #undef IPv6 */
 
 /* Define to 1 if the system supports IP Multicast */
-#define MCAST 1
+/* #undef MCAST */
 
 /* Define to the address where bug reports for this package should be sent. */
 #define PACKAGE_BUGREPORT ""
@@ -278,16 +278,16 @@
 /* #undef SA_FAMILY_T */
 
 /* Define to 1 if you have the ANSI C header files. */
-#define STDC_HEADERS 1
+/* #undef STDC_HEADERS */
 
 /* Define to 1 if you can safely include both <sys/time.h> and <time.h>. */
 #define TIME_WITH_SYS_TIME 1
 
 /* Define to 1 if the system supports UNIX domain sockets */
-#define UNIXDOMAIN 1
+/* #undef UNIXDOMAIN */
 
 /* Define to 1 if the system supports UNIX domain sockets */
-#define UNIXdomain 1
+/* #undef UNIXdomain */
 
 /* 16 bit signed type */
 /* #undef int16_t */

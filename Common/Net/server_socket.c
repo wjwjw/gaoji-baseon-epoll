@@ -15,27 +15,35 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "server_socket.h"
+#include "Net/server_socket.h"
 
-void server_socket_init(INT LoginPort)
+VOID server_socket_init(INT LoginPort)
 {
+    printf("out out out");
     BOOL ret = false;
     socket_init();
     ret = socket_create();
     assert(ret);
     ret = socket_setreuseaddr();
     assert(ret);
-    socket_bind(LoginPort);
-    socket_listen();
+    socket_bind_designation(LoginPort);
+    ret = socket_listen(5);
+    assert(ret);
 
 }
 
-void server_socket_close()
+VOID server_socket_close()
 {
 
 }
 
-void server_socket_accept()
+VOID server_socket_accept()
 {
 
 }
+
+VOID server_socket_set_nonblocking()
+{
+
+}
+

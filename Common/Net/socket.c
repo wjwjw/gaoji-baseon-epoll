@@ -16,7 +16,7 @@
 */
 
 #include <stdbool.h>
-#include "socket.h"
+#include "Net/socket.h"
 
 VOID socket_init()
 {
@@ -86,9 +86,14 @@ BOOL socket_bind_designation(UINT port)
     }
 }
 
-BOOL socket_listen()
+BOOL socket_listen(INT backlog)
 {
-    return 1;
+    return listen_ex(m_socket, backlog);
+}
+
+BOOL socket_setnoblocking(SOCKET s)
+{
+    return setsocketnoblocking_ex(s);
 }
 
 BOOL socket_isvalid()

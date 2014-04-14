@@ -22,7 +22,7 @@
 
 void server_thread_run()
 {
-    tick();
+    server_manager_init();
 }
 
 void server_thread_stop()

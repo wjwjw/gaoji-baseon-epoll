@@ -19,8 +19,6 @@
 #define _SOCKET_API_H
 
 
-#include "socket_api.h"
-
 #if _WIN32
 #elif __linux__
 #include <sys/types.h>          // for accept()
@@ -46,9 +44,10 @@ typedef struct sockaddr_in SOCKADDR_IN;
 SOCKET    socket_ex(INT domain, INT type, INT protocol);
 BOOL    reuse_ex(SOCKET s);
 BOOL    bind_ex(SOCKET s , const struct sockaddr * addr , UINT addrlen);
-void    connect_ex();
-void    listen_ex();
-void    accept_ex();
+VOID    connect_ex();
+BOOL    listen_ex();
+VOID    accept_ex();
+BOOL    setsocketnoblocking_ex(SOCKET s);
 
 // SOCKET listener;
 #endif

@@ -494,9 +494,9 @@ s,@LIBGAI_OBJS@,,;t t
 s,@LIBROUTE_OBJS@,,;t t
 s,@LIBXTI_OBJS@,,;t t
 s,@LIBS_XTI@,-lpthread -levent,;t t
-s,@LIBUNP@,../libgame.a,;t t
+s,@LIBUNP@,../../Common/libgame.a,;t t
 s,@LIBUNPXTI@,,;t t
-s,@LIBUNP_NAME@,../libgame.a,;t t
+s,@LIBUNP_NAME@,../../Common/libgame.a,;t t
 s,@LIBUNPXTI_NAME@,,;t t
 s,@LIBOBJS@,,;t t
 s,@LTLIBOBJS@,,;t t

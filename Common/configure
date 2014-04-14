@@ -2875,8 +2875,8 @@ echo "${ECHO_T}yes" >&6
 else
 	echo "$as_me:$LINENO: result: no" >&5
 echo "${ECHO_T}no" >&6
-	LIBUNP="../libgame.a"
-	LIBUNP_NAME=../libgame.a
+	LIBUNP="../../Common/libgame.a"
+	LIBUNP_NAME=../../Common/libgame.a
 fi
 
 #echo "$as_me:$LINENO: checking for $HOME/libunpxti.a" >&5

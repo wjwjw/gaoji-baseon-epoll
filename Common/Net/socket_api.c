@@ -14,7 +14,7 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-#include "socket_api.h"
+#include "Net/socket_api.h"
 
 SOCKET socket_ex(INT domain, INT type, INT protocol)
 {
@@ -103,3 +103,39 @@ BOOL bind_ex(SOCKET s , const struct sockaddr * addr , UINT addrlen)
     }
     return true;
 }
+
+BOOL listen_ex(SOCKET s, INT backlog)
+{
+    if ( listen(s, backlog) == SOCKET_ERROR)
+    {
+#if __linux__
+        switch( errno )
+        {
+        case EBADF:
+        case ENOTSOCK:
+        case EOPNOTSUPP:
+        default:
+            {
+                break;
+            }
+        }
+#elif _WIN32
+#endif
+    return false;
+    }
+    return true;
+}
+
+BOOL setsocketnoblocking_ex(SOCKET s)
+{
+    INT result = evutil_make_socket_nonblocking(s);
+    if ( result == -1 )
+    {
+        return false;
+    }
+    else
+    {
+        return true;
+    }
+}   
+
