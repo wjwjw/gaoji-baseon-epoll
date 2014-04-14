@@ -9,14 +9,14 @@
 # System = i686-pc-linux-gnu
 
 CC = gcc
-CFLAGS = -I../ -g -O2 -D_REENTRANT -D_REENTRANT -Wall
-LIBS = ../libgame.a -lpthread -levent
-LIBS_XTI =  ../libgame.a -lpthread -levent
+CFLAGS = -I../include/ -g -O2 -D_REENTRANT -D_REENTRANT -Wall
+LIBS = ../../Common/libgame.a -lpthread -levent
+LIBS_XTI =  ../../Common/libgame.a -lpthread -levent
 RANLIB = ranlib
 
 # Following is the main library, built from all the object files
 # in the lib/ and libfree/ directories.
-LIBUNP_NAME = ../libgame.a
+LIBUNP_NAME = ../../Common/libgame.a
 
 # Following is the XTI library, built from all the object files
 # in the libxti/ directory.

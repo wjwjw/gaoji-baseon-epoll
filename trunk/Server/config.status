@@ -468,7 +468,7 @@ s,@DEFS@,-DHAVE_CONFIG_H,;t t
 s,@ECHO_C@,,;t t
 s,@ECHO_N@,-n,;t t
 s,@ECHO_T@,,;t t
-s,@LIBS@,-lpthread,;t t
+s,@LIBS@,-lpthread -levent,;t t
 s,@build@,i686-pc-linux-gnu,;t t
 s,@build_cpu@,i686,;t t
 s,@build_vendor@,pc,;t t
@@ -478,7 +478,7 @@ s,@host_cpu@,i686,;t t
 s,@host_vendor@,pc,;t t
 s,@host_os@,linux-gnu,;t t
 s,@CC@,gcc,;t t
-s,@CFLAGS@,-g -O2 -D_REENTRANT -Wall,;t t
+s,@CFLAGS@,-g -O2 -D_REENTRANT -D_REENTRANT -Wall,;t t
 s,@LDFLAGS@,,;t t
 s,@CPPFLAGS@,,;t t
 s,@ac_ct_CC@,gcc,;t t
@@ -488,15 +488,15 @@ s,@RANLIB@,ranlib,;t t
 s,@ac_ct_RANLIB@,ranlib,;t t
 s,@CPP@,gcc -E,;t t
 s,@EGREP@,grep -E,;t t
-s,@LIB_OBJS@, error.o readn.o writen.o,;t t
+s,@LIB_OBJS@, server_socket.o socket.o socket_api.o,;t t
 s,@LIBFREE_OBJS@,,;t t
 s,@LIBGAI_OBJS@,,;t t
 s,@LIBROUTE_OBJS@,,;t t
 s,@LIBXTI_OBJS@,,;t t
-s,@LIBS_XTI@,-lpthread,;t t
-s,@LIBUNP@,,;t t
+s,@LIBS_XTI@,-lpthread -levent,;t t
+s,@LIBUNP@,../../Common/libgame.a,;t t
 s,@LIBUNPXTI@,,;t t
-s,@LIBUNP_NAME@,,;t t
+s,@LIBUNP_NAME@,../../Common/libgame.a,;t t
 s,@LIBUNPXTI_NAME@,,;t t
 s,@LIBOBJS@,,;t t
 s,@LTLIBOBJS@,,;t t
@@ -776,7 +776,6 @@ ${ac_dA}PACKAGE_STRING${ac_dB}PACKAGE_STRING${ac_dC}""${ac_dD}
 ${ac_dA}PACKAGE_BUGREPORT${ac_dB}PACKAGE_BUGREPORT${ac_dC}""${ac_dD}
 ${ac_dA}CPU_VENDOR_OS${ac_dB}CPU_VENDOR_OS${ac_dC}"i686-pc-linux-gnu"${ac_dD}
 ${ac_dA}HAVE_LIBPTHREAD${ac_dB}HAVE_LIBPTHREAD${ac_dC}1${ac_dD}
-${ac_dA}STDC_HEADERS${ac_dB}STDC_HEADERS${ac_dC}1${ac_dD}
 ${ac_dA}HAVE_SYS_TYPES_H${ac_dB}HAVE_SYS_TYPES_H${ac_dC}1${ac_dD}
 ${ac_dA}HAVE_SYS_SOCKET_H${ac_dB}HAVE_SYS_SOCKET_H${ac_dC}1${ac_dD}
 ${ac_dA}HAVE_SYS_TIME_H${ac_dB}HAVE_SYS_TIME_H${ac_dC}1${ac_dD}
@@ -807,6 +806,7 @@ ${ac_dA}TIME_WITH_SYS_TIME${ac_dB}TIME_WITH_SYS_TIME${ac_dC}1${ac_dD}
 ${ac_dA}t_scalar_t${ac_dB}t_scalar_t${ac_dC}int32_t${ac_dD}
 ${ac_dA}HAVE_STRUCT_SOCKADDR_STORAGE${ac_dB}HAVE_STRUCT_SOCKADDR_STORAGE${ac_dC}1${ac_dD}
 ${ac_dA}HAVE_MSGHDR_MSG_CONTROL${ac_dB}HAVE_MSGHDR_MSG_CONTROL${ac_dC}1${ac_dD}
+${ac_dA}HAVE_STRUCT_IFREQ_IFR_MTU${ac_dB}HAVE_STRUCT_IFREQ_IFR_MTU${ac_dC}1${ac_dD}
 CEOF
   sed -f $tmp/defines.sed $tmp/in >$tmp/out
   rm -f $tmp/in
@@ -816,7 +816,6 @@ CEOF
 /^[ 	]*#[ 	]*define/!b
 t clr
 : clr
-${ac_dA}HAVE_STRUCT_IFREQ_IFR_MTU${ac_dB}HAVE_STRUCT_IFREQ_IFR_MTU${ac_dC}1${ac_dD}
 ${ac_dA}HAVE_GETADDRINFO_PROTO${ac_dB}HAVE_GETADDRINFO_PROTO${ac_dC}1${ac_dD}
 ${ac_dA}HAVE_GETNAMEINFO_PROTO${ac_dB}HAVE_GETNAMEINFO_PROTO${ac_dC}1${ac_dD}
 ${ac_dA}HAVE_GETHOSTNAME_PROTO${ac_dB}HAVE_GETHOSTNAME_PROTO${ac_dC}1${ac_dD}
@@ -848,22 +847,6 @@ ${ac_dA}HAVE_PSELECT${ac_dB}HAVE_PSELECT${ac_dC}1${ac_dD}
 ${ac_dA}HAVE_SNPRINTF${ac_dB}HAVE_SNPRINTF${ac_dC}1${ac_dD}
 ${ac_dA}HAVE_SOCKATMARK${ac_dB}HAVE_SOCKATMARK${ac_dC}1${ac_dD}
 ${ac_dA}HAVE_VSNPRINTF${ac_dB}HAVE_VSNPRINTF${ac_dC}1${ac_dD}
-${ac_dA}IPV4${ac_dB}IPV4${ac_dC}1${ac_dD}
-${ac_dA}IPv4${ac_dB}IPv4${ac_dC}1${ac_dD}
-${ac_dA}IPV6${ac_dB}IPV6${ac_dC}1${ac_dD}
-${ac_dA}IPv6${ac_dB}IPv6${ac_dC}1${ac_dD}
-${ac_dA}UNIXDOMAIN${ac_dB}UNIXDOMAIN${ac_dC}1${ac_dD}
-${ac_dA}UNIXdomain${ac_dB}UNIXdomain${ac_dC}1${ac_dD}
-CEOF
-  sed -f $tmp/defines.sed $tmp/in >$tmp/out
-  rm -f $tmp/in
-  mv $tmp/out $tmp/in
-
-  cat >$tmp/defines.sed <<CEOF
-/^[ 	]*#[ 	]*define/!b
-t clr
-: clr
-${ac_dA}MCAST${ac_dB}MCAST${ac_dC}1${ac_dD}
 CEOF
   sed -f $tmp/defines.sed $tmp/in >$tmp/out
   rm -f $tmp/in
@@ -883,7 +866,6 @@ ${ac_uA}PACKAGE_STRING${ac_uB}PACKAGE_STRING${ac_uC}""${ac_uD}
 ${ac_uA}PACKAGE_BUGREPORT${ac_uB}PACKAGE_BUGREPORT${ac_uC}""${ac_uD}
 ${ac_uA}CPU_VENDOR_OS${ac_uB}CPU_VENDOR_OS${ac_uC}"i686-pc-linux-gnu"${ac_uD}
 ${ac_uA}HAVE_LIBPTHREAD${ac_uB}HAVE_LIBPTHREAD${ac_uC}1${ac_uD}
-${ac_uA}STDC_HEADERS${ac_uB}STDC_HEADERS${ac_uC}1${ac_uD}
 ${ac_uA}HAVE_SYS_TYPES_H${ac_uB}HAVE_SYS_TYPES_H${ac_uC}1${ac_uD}
 ${ac_uA}HAVE_SYS_SOCKET_H${ac_uB}HAVE_SYS_SOCKET_H${ac_uC}1${ac_uD}
 ${ac_uA}HAVE_SYS_TIME_H${ac_uB}HAVE_SYS_TIME_H${ac_uC}1${ac_uD}
@@ -914,6 +896,7 @@ ${ac_uA}TIME_WITH_SYS_TIME${ac_uB}TIME_WITH_SYS_TIME${ac_uC}1${ac_uD}
 ${ac_uA}t_scalar_t${ac_uB}t_scalar_t${ac_uC}int32_t${ac_uD}
 ${ac_uA}HAVE_STRUCT_SOCKADDR_STORAGE${ac_uB}HAVE_STRUCT_SOCKADDR_STORAGE${ac_uC}1${ac_uD}
 ${ac_uA}HAVE_MSGHDR_MSG_CONTROL${ac_uB}HAVE_MSGHDR_MSG_CONTROL${ac_uC}1${ac_uD}
+${ac_uA}HAVE_STRUCT_IFREQ_IFR_MTU${ac_uB}HAVE_STRUCT_IFREQ_IFR_MTU${ac_uC}1${ac_uD}
 CEOF
   sed -f $tmp/undefs.sed $tmp/in >$tmp/out
   rm -f $tmp/in
@@ -923,7 +906,6 @@ CEOF
 /^[ 	]*#[ 	]*undef/!b
 t clr
 : clr
-${ac_uA}HAVE_STRUCT_IFREQ_IFR_MTU${ac_uB}HAVE_STRUCT_IFREQ_IFR_MTU${ac_uC}1${ac_uD}
 ${ac_uA}HAVE_GETADDRINFO_PROTO${ac_uB}HAVE_GETADDRINFO_PROTO${ac_uC}1${ac_uD}
 ${ac_uA}HAVE_GETNAMEINFO_PROTO${ac_uB}HAVE_GETNAMEINFO_PROTO${ac_uC}1${ac_uD}
 ${ac_uA}HAVE_GETHOSTNAME_PROTO${ac_uB}HAVE_GETHOSTNAME_PROTO${ac_uC}1${ac_uD}
@@ -955,22 +937,6 @@ ${ac_uA}HAVE_PSELECT${ac_uB}HAVE_PSELECT${ac_uC}1${ac_uD}
 ${ac_uA}HAVE_SNPRINTF${ac_uB}HAVE_SNPRINTF${ac_uC}1${ac_uD}
 ${ac_uA}HAVE_SOCKATMARK${ac_uB}HAVE_SOCKATMARK${ac_uC}1${ac_uD}
 ${ac_uA}HAVE_VSNPRINTF${ac_uB}HAVE_VSNPRINTF${ac_uC}1${ac_uD}
-${ac_uA}IPV4${ac_uB}IPV4${ac_uC}1${ac_uD}
-${ac_uA}IPv4${ac_uB}IPv4${ac_uC}1${ac_uD}
-${ac_uA}IPV6${ac_uB}IPV6${ac_uC}1${ac_uD}
-${ac_uA}IPv6${ac_uB}IPv6${ac_uC}1${ac_uD}
-${ac_uA}UNIXDOMAIN${ac_uB}UNIXDOMAIN${ac_uC}1${ac_uD}
-${ac_uA}UNIXdomain${ac_uB}UNIXdomain${ac_uC}1${ac_uD}
-CEOF
-  sed -f $tmp/undefs.sed $tmp/in >$tmp/out
-  rm -f $tmp/in
-  mv $tmp/out $tmp/in
-
-  cat >$tmp/undefs.sed <<CEOF
-/^[ 	]*#[ 	]*undef/!b
-t clr
-: clr
-${ac_uA}MCAST${ac_uB}MCAST${ac_uC}1${ac_uD}
 s,^[ 	]*#[ 	]*undef[ 	][ 	]*[a-zA-Z_][a-zA-Z_0-9]*,/* & */,
 CEOF
   sed -f $tmp/undefs.sed $tmp/in >$tmp/out

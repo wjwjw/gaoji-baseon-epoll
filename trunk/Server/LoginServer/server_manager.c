@@ -17,10 +17,11 @@
 
 #include <stdio.h>
 #include "server_manager.h"
+#include "server_socket.h"
 
 void server_manager_init()
 {
-
+    server_socket_init(1000);
 }  
 
 void server_manager_tick()

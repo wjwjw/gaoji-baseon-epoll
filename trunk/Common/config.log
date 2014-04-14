@@ -128,7 +128,7 @@ configure:2442: $? = 0
 configure:2454: result: yes
 configure:2538: checking for t_open in -lnsl
 configure:2569: gcc -o conftest -g -O2 -D_REENTRANT -D_REENTRANT   conftest.c -lnsl  -lpthread -levent  >&5
-/tmp/cc0NCiwc.o: In function `main':
+/tmp/ccGmWapj.o: In function `main':
 /mnt/hgfs/centos_share/Me/Common/configure:2567: undefined reference to `t_open'
 collect2: ld returned 1 exit status
 configure:2572: $? = 1
@@ -175,7 +175,7 @@ configure:2726: checking for /root/libresolv.a
 configure:2733: result: no
 configure:2736: checking for res_init in -lresolv
 configure:2767: gcc -o conftest -g -O2 -D_REENTRANT -D_REENTRANT   conftest.c -lresolv  -lpthread -levent  >&5
-/tmp/ccMYcmoL.o: In function `main':
+/tmp/ccUfgL0Q.o: In function `main':
 /mnt/hgfs/centos_share/Me/Common/configure:2765: undefined reference to `res_init'
 collect2: ld returned 1 exit status
 configure:2770: $? = 1
@@ -1692,9 +1692,9 @@ configure:7024: $? = 0
 configure:7035: result: yes
 configure:7050: checking for kqueue
 configure:7100: gcc -o conftest -g -O2 -D_REENTRANT -D_REENTRANT   conftest.c -lpthread -levent  >&5
-/tmp/ccwIyJ4c.o: In function `main':
+/tmp/ccWJD1lR.o: In function `main':
 /mnt/hgfs/centos_share/Me/Common/configure:7153: undefined reference to `kqueue'
-/tmp/ccwIyJ4c.o:(.data+0x0): undefined reference to `kqueue'
+/tmp/ccWJD1lR.o:(.data+0x0): undefined reference to `kqueue'
 collect2: ld returned 1 exit status
 configure:7103: $? = 1
 configure: failed program was:
@@ -1805,9 +1805,9 @@ configure: failed program was:
 configure:7120: result: no
 configure:7050: checking for kevent
 configure:7100: gcc -o conftest -g -O2 -D_REENTRANT -D_REENTRANT   conftest.c -lpthread -levent  >&5
-/tmp/cc0LY0hx.o: In function `main':
+/tmp/ccg6dUob.o: In function `main':
 /mnt/hgfs/centos_share/Me/Common/configure:7153: undefined reference to `kevent'
-/tmp/cc0LY0hx.o:(.data+0x0): undefined reference to `kevent'
+/tmp/ccg6dUob.o:(.data+0x0): undefined reference to `kevent'
 collect2: ld returned 1 exit status
 configure:7103: $? = 1
 configure: failed program was:
@@ -2375,6 +2375,7 @@ on localhost.localdomain
 config.status:628: creating Makefile
 config.status:628: creating Make.defines
 config.status:731: creating config.h
+config.status:958: config.h is unchanged
 
 ## ---------------- ##
 ## Cache variables. ##
@@ -2527,10 +2528,10 @@ LIBOBJS=''
 LIBROUTE_OBJS=''
 LIBS='-lpthread -levent'
 LIBS_XTI='-lpthread -levent'
-LIBUNP='../libgame.a'
+LIBUNP='../../Common/libgame.a'
 LIBUNPXTI=''
 LIBUNPXTI_NAME=''
-LIBUNP_NAME='../libgame.a'
+LIBUNP_NAME='../../Common/libgame.a'
 LIBXTI_OBJS=''
 LIB_OBJS=' server_socket.o socket.o socket_api.o'
 LTLIBOBJS=''

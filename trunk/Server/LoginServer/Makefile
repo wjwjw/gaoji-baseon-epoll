@@ -10,8 +10,8 @@ PROGS =	LoginServer
 all:	${PROGS}
 
 LoginServer:	${OBJS}
-		#${CC} ${CFLAGS} -o $@ ${OBJS} ${STRUCTURES} ${LIBS}
 		${CC} ${CFLAGS} -o $@ ${OBJS} ${LIBS}
+		#${CC} ${CFLAGS} -o $@ ${OBJS} ${STRUCTURES} ${LIBS}
 
 clean:
 		rm -f ${OBJS}

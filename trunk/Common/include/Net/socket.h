@@ -15,14 +15,25 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef _SERVER_SOCKET_H
-#define _SERVER_SOCKET_H
+#ifndef _SOCKET_H
+#define _SOCKET_H
 
-#include <assert.h>
-#include "socket.h"
 
-void    server_socket_init(INT LoginPort);
-void    server_socket_close();
-void    server_socket_accept();
+#include "socket_api.h"
+
+VOID    socket_init();
+VOID    socket_init_designation(const CHAR* host, UINT port);
+BOOL    socket_create();
+BOOL    socket_setreuseaddr();
+BOOL    socket_bind();
+BOOL    socket_bind_designation(UINT port);
+BOOL    socket_listen(INT backlog);
+BOOL    socket_isvalid();
+BOOL    socket_setnoblocking(SOCKET s);
+
+SOCKET m_socket;
+SOCKADDR_IN m_socket_addr;
+int m_port;
+char m_host[ip_size];
 
 #endif
